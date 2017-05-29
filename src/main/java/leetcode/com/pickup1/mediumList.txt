@@ -1,0 +1,87 @@
+287,
+56
+
+187:TLE问题的解决方案,在一长串字符串中寻找目标,如何才能控制好复杂度
+367:那个 r = (r + x/r) / 2;的逼近方法是如何来的呢?
+365:最大公约数的解法,以及为啥会用到最大公约数
+排列的问题:31,46,47,60-->要深刻理解,k是如何推算出来的
+组合的问题:17,40,77,216
+二叉树&前序遍历:144
+回文子串问题:No.005
+非典型解法:No334,No318
+正则表达式(hard):No044
+Easy:
+204:判断prime的方法,其实并没有理解明白,需要看个视屏消化下: https://www.youtube.com/watch?v=eKp56OLhoQs
+169:巧妙的想法,不需要更多复杂的数据结构
+Merge Sort:148
+Trie Tree: 208,211------>Understand is necessary,202(hard)
+二叉搜索树(TreeSet):220:可以求大于某个值的最小元素,可以求小于某个元素的最大值------>TODO
+Bucket:220,需要理解bucket元素中的相邻元素间的关系是什么------>TODO
+BST:116,173
+
+
+二分法; 81,374
+组合问题:No.78,No.241,化解并有优化处理
+DP:174,120
+BFS:130,127,126
+DFS:78,090,131,039
+图:133(宽搜,map+list)
+杨辉三角:No.119
+对称数字
+位操作:191,190
+house robber: 213->3个变量解决问题的做法,要搞明白哦------>TODO
+hard:
+股票系列:188, 309<cooldown>-->TODO understand it
+DP(难):188
+图:126->时间效率要求高,通过BFS构建图,再根据DFS进行搜索
+NQueens: No051, No052
+Populating Next Right Pointers in Each Node: No.116,No.117
+//文本比较工具
+https://text-compare.com/
+二叉树:116,117
+后期需要进一步分析和学习的几大模块:
+1.计算式
+2.图的遍历
+3.DP的整理
+
+非典型算法:038
+寻找第k小个元素:No378
+priority:No378
+需要给所有的题目打上tag,比如用到的算法,用的数据结构,属于哪一类的问题等等
+
+N Queen:No051,
+
+九章经验:
+图的遍历:
+BFS
+从某个点粗发,找到其他所有的点-->BFS
+Graph BFS Vs Tree BFS:
+Tree:是按照层来遍历的
+Graph:用for循环判断neighbour
+带环的图 需要用个hash表来标记点是否被遍历或是访问过
+127. Word Ladder:单词是节点,单词间是边,寻找最短路径的方式考虑BFS.在某些情况下,DFS的时间复杂度会是2^n
+126. Word Ladder II:如果用DFS的话,会将所以的节点统统遍历到
+
+
+DFS:求所有可行解的问题要考虑DFS
+Search:
+Permutations: 找出所有情况的排列,考虑DFS,
+反推这个解法,需要在图上画出来两个集合,用图的方式来化解问题
+Subset:->另一类模板题,
+N-Queen: 每次走过1个列之后,其余的列就不可以走了,问题转化为permutation类型问题
+-->这样大量代码的题目,可以将功能拆分成几个小模块,然后再拼凑
+对角线的点的特征:x-y, x+y的值保持相等!!!
+-->时间复杂度根据,画图得知是 n!
+============
+090_Subsets II
+131_Palindrome Partitioning 是subset的一个方法变通
+039_Combination Sum:元素可以重复使用
+040Combination Sum II:含有重复元素,但是同一个元素只能使用一次
+
+Conclusion
+DFS (O(2^n), O(n!))(思想:构造搜索树+判断可行性)
+    1.Find all possible solutions
+    2.Permutations / Subsets
+BFS (O(m), O(n))
+    1.Graph traversal(每个点只遍历一次)
+    2.Find shortest path in a simple graph

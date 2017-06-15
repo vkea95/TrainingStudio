@@ -83,7 +83,7 @@ public class No148_Sort_List {
 //        return dummy.next;
     }
 
-    //Merge 排序
+    //Jian_Merge 排序
     public ListNode sortList_slow(ListNode head) {
         if (head == null || head.next == null) return head;
         //opt:去掉dummy节点,设置prev节点

@@ -2,6 +2,7 @@ package alg4.com.ch0401;
 
 /**
  * Created by JianZhang on 7/23/17.
+ * 使用深度优先搜索找出图中的所有连通分量
  */
 public class CC {
     private boolean[] marked;

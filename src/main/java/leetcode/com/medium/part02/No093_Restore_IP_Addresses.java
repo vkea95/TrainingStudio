@@ -16,7 +16,7 @@ import java.util.List;
  * ******************************************************
  * Solution:
  * http://www.cnblogs.com/yuzhangcmu/p/4106686.html
- * DFS 解决问题，递归经典模板
+ * DepthFirstSearch 解决问题，递归经典模板
  */
 public class No093_Restore_IP_Addresses {
     public List<String> restoreIpAddresses(String s) {

@@ -21,7 +21,7 @@ public abstract class GraphTraverse {
     public int[] parent = new int[MAXV + 1];
     public int totalEdge = 0;
 
-    /*DFS variables*/
+    /*DepthFirstSearch variables*/
     public boolean isFinished;
     public int time = 0;
     //似乎是表示某节点被处理的顺序

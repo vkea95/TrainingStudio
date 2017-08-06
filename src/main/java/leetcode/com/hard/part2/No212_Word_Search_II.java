@@ -36,7 +36,7 @@ import java.util.List;
  * 1.依旧是图的问题!!!
  * ****************************************************
  * Ref: https://segmentfault.com/a/1190000005710651
- * 1.Trie + DFS
+ * 1.Trie + DepthFirstSearch
  * 复杂度
  * O(MN*4^K ) 时间 O(MN) 空间
  * K为word最大长度， M*N为board大小

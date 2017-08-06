@@ -165,7 +165,7 @@ public class No126_Word_Ladder_II {
             //bug1:此处删除最后一个元素应该
             solution.remove(solution.size() - 1);
         }
-    }    //最短路径,所以这个适用于图的解法,DFS? BFS?
+    }    //最短路径,所以这个适用于图的解法,DepthFirstSearch? BFS?
 
 
     boolean isConnected = false;
@@ -269,7 +269,7 @@ public class No126_Word_Ladder_II {
 
     //标准的DFS 递归调用了
     private void DFS(List<List<String>> result, List<String> solution, String start, String end, Map<String, List<String>> hs) {
-        //we will use DFS, more specifically backtracking to build paths.
+        //we will use DepthFirstSearch, more specifically backtracking to build paths.
         //有可能是LeetCode的测试case 从前疏后密集
         //boundary case
         if (start.equals(end)) {

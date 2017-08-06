@@ -26,7 +26,7 @@ import java.util.*;
  * BFS
  * ****************************************************
  * Ref: https://discuss.leetcode.com/topic/34875/easy-short-concise-and-fast-java-dfs-3-ms-solution/2
- * DFS:
+ * DepthFirstSearch:
  * For a better view see here
  * <p>
  * Key Points:

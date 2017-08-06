@@ -149,7 +149,7 @@ public class No126_Word_Ladder_II {
     }
 
     public void DFS(List<List<String>> result, List<String> temp, String start, String end, Map<String, List<String>> hs) {
-        //we will use DFS, more specifically backtracking to build paths.
+        //we will use DepthFirstSearch, more specifically backtracking to build paths.
 
         //boundary case
         if (start.equals(end)) {

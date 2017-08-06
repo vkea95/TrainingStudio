@@ -10,7 +10,7 @@ public class DFS_Articulation extends DFS {
     public final int BACK = 0;
     public final int TREE = 0;
     public int[] reachableAncestor = new int[MAXV + 1];/*earliest reachable ancestor of v*/
-    public int[] treeOutDegree = new int[MAXV + 1]; /*DFS tree outdegree of v*/
+    public int[] treeOutDegree = new int[MAXV + 1]; /*DepthFirstSearch tree outdegree of v*/
 
     @Override
     public void processVertexEarly(int v) {
@@ -19,7 +19,7 @@ public class DFS_Articulation extends DFS {
 
 
     public void processVertexLate(int v) {
-        boolean isRoot; /* is the vertex the root of the DFS tree? */
+        boolean isRoot; /* is the vertex the root of the DepthFirstSearch tree? */
         int time_v; /* earliest reachable time for v */
         int time_parent; /* earliest reachable time for parent[v] */
 

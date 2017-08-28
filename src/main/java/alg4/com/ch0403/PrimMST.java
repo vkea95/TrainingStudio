@@ -32,6 +32,7 @@ public class PrimMST {
         for (Edge e : G.edges(v)) {
             int w = e.other(v);
             if (marked[w]) continue;
+//            if (distTo[w] < Double.POSITIVE_INFINITY) continue;
 
             if (e.weight() < distTo[w]) {
                 edgeTo[w] = e;

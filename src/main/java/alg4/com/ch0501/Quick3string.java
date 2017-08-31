@@ -1,5 +1,7 @@
 package alg4.com.ch0501;
 
+import edu.princeton.cs.algs4.UF;
+
 /**
  * Created by JianZhang on 8/27/17.
  */
@@ -36,6 +38,7 @@ public class Quick3string {
         sort(a, lo, lt - 1, d);
         if (v >= 0) sort(a, lt, gt, d + 1);//-->继续比较下一部分字符的大小
         sort(a, gt + 1, hi, d);
+//        UF
     }
 
 }

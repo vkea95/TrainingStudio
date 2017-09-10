@@ -3,15 +3,11 @@ package leetcode.com.tag.sort;
 /**
  * Created by JianZhang on 9/7/17.
  * Given an unsorted array, find the maximum difference between the successive elements in its sorted form.
- * <p>
  * Try to solve it in linear time/space.
- * <p>
  * Return 0 if the array contains less than 2 elements.
- * <p>
  * You may assume all elements in the array are non-negative integers and fit in the 32-bit signed integer range.
  * Thoughts:
  * 1. sort in quick sort & calculate the differences between the successiv elements in its sorted from
- * <p>
  * label: bucket sort
  * Solutions:
  * 这个题的目的是，把Min-Max之间等分为N个桶。这样N个数最好的情况是分别落在N个桶里各1个。如果是这样，相当于已经排序好了，
@@ -39,10 +35,11 @@ public class No164_Maximum_Gap {
         for (int i = 0; i < n; ++i) {//第n个元素貌似没用
             int t = (int) ((nums[i] - minNum) / average);
             localMin[t] = min(localMin[t], nums[i]);
-            localMax[t] = max(localMax[t], nums[i]);//根据local的min和max方法,可知:一个桶有一个数的时候,它既是max也是min
+            //根据local的min和max方法,可知:一个桶有一个数的时候,它既是max也是min
+            localMax[t] = max(localMax[t], nums[i]);
         }
         int ans = (int) average, left = 0, right = 1;
-        while (left < n - 1) {//left外延是N-1
+        while (left < n - 1) {//left递增边界是N-1
             while (right < n && localMin[right] == -1) ++right;//只是循环到n-1
             if (right >= n) break;
             ans = max(ans, localMin[right] - localMax[left]);

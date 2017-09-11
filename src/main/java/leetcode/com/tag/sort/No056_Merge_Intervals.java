@@ -22,6 +22,7 @@ import java.util.List;
  * 1. 比较条件该是previous.start<current.end
  * 2. 不要忽略end条件,否则会导致区间值不正确
  * 3. 循环结束后,要插入一次结果否则,答案不正确
+ * Tag: sort,tree
  */
 public class No056_Merge_Intervals {
     private class IntervalComparator implements Comparator<Interval> {

@@ -34,7 +34,7 @@ public class No095_Unique_Binary_Search_Trees_II {
 
         List<TreeNode> list = new ArrayList<>();
         if (start > end) {
-            list.add(null);//处理空的子节点问题
+            list.add(null);//处理空的子节点问题,后面还要添加这个null,来进行判断呢,而且list课可以加入null元素!!!
             return list;
         }
         for (int i = start; i <= end; i++) {

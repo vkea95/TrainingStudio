@@ -3,6 +3,7 @@ package leetcode.com.tag.tree;
 import leetcode.com.util.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -26,6 +27,7 @@ public class No102_Binary_Tree_Level_Order_Traversal {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
         helper(result, root, 0);
+//        Collections.reverse(result);
         return result;
     }
 

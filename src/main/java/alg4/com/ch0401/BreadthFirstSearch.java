@@ -17,12 +17,12 @@ public class BreadthFirstSearch {
         marked = new boolean[G.V()];
         edgeTo = new int[G.V()];
         distTo = new int[G.V()];
-        initShortesPath();
+        initShortestPath();
         this.s = s;
         this.bfs(G, s);
     }
 
-    private void initShortesPath() {
+    private void initShortestPath() {
         for (int i : distTo) i = Integer.MAX_VALUE;
     }
 

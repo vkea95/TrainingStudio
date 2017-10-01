@@ -1,4 +1,4 @@
-difficulty: No.112,114,116, 199,200需要二刷 @white board
+difficulty: No.112,114,116, 199,200需要二刷 @white board, 210,279
 0912
 1. robber house:
 dp数组，
@@ -49,4 +49,7 @@ sort-->tree->dfs
 No.133, 199
 ==> Tree的三种遍历方式的非递归实现,要烂熟于心
 0930
-No.200
+No.200-->我的那个解法的bug没有解开!!!!
+No.207-->course schedule 未开始
+1001
+No.210,279

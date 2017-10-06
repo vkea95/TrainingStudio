@@ -13,7 +13,7 @@ package leetcode.com.tag.dp;
  * Special thanks to @Freezen for adding this problem and creating all test cases.
  * credit:https://discuss.leetcode.com/topic/8984/a-concise-dp-solution-in-java
  */
-public class No128_Best_Time_to_Buy_and_Sell_Stock_IV {
+public class No188_Best_Time_to_Buy_and_Sell_Stock_IV {
 
     public int maxProfit_2(int k, int[] prices) {
         if (prices == null || prices.length == 0 || k == 0) {

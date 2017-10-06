@@ -1,4 +1,4 @@
-difficulty: No.112,114,116, 199,200需要二刷 @white board, 210,279
+difficulty: No.112,114,116, 199,200需要二刷 @white board, 210,279, 188, 547, 128,685!!!
 0912
 1. robber house:
 dp数组，
@@ -54,4 +54,7 @@ No.207-->course schedule 未开始
 1001
 No.210,279
 
-1002 -->union-
+1003 -->union-find
+No.128,547, 684,685
+1006 -->HashMap
+No.001

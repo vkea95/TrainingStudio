@@ -1,4 +1,4 @@
-package leetcode.com.tag.dfs;
+package leetcode.com.tag.tree;
 
 import leetcode.com.util.TreeNode;
 

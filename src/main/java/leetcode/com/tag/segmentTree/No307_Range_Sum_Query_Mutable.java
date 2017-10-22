@@ -26,38 +26,30 @@ public class No307_Range_Sum_Query_Mutable {
     private class NumArray {
 
         SegmentTreeNode root;
-
         public NumArray(int[] nums) {
-
             if (nums == null || nums.length == 0) root = new SegmentTreeNode(0, 0, 0);
             else root = buildNode(0, nums.length - 1, nums);
         }
-
         public void update(int i, int val) {
             update(root, i, val);
         }
-
         public int sumRange(int i, int j) {
             return sumRange(root, i, j);
         }
-
 
         private int sumRangeHelper(int i, int j, SegmentTreeNode node) {
             //check if the node live in the range
             //此处将,index范围外的数据统统过滤掉,即只返回0,不会再向下递归寻找相应的数据了
             if (node == null || i > j || i < node.start || j > node.end) return 0;
-
             if (i <= node.start && node.end <= j) {
                 return node.sum;
             }
-
             int mid = (node.start + node.end) / 2;
             //bug1:don't know use Math.min(mid,j) & Math.max(mid+1,i)
 //            此处的做法可以结合本方法的入口判断条件来进行理解,即,用min和max来缩小范围,总之方法会正常应对的
             int result = sumRangeHelper(i, Math.min(mid, j), node.leftNode)
                     + sumRangeHelper(Math.max(mid + 1, i), j, node.rightNode);
             return result;
-
         }
 
 
@@ -108,18 +100,14 @@ public class No307_Range_Sum_Query_Mutable {
 
     }
 
-
     private class SegmentTreeNode {
-
         SegmentTreeNode leftNode, rightNode;
         public int start, end, sum;
-
         SegmentTreeNode(int start, int end, int sum) {
             this.start = start;
             this.end = end;
             this.sum = sum;
         }
-
         SegmentTreeNode(int start, int end) {
             this.start = start;
             this.end = end;

@@ -67,3 +67,10 @@ No.218,307,329
 
 1012: 家庭作业: 覆盖n个区间的最小的一对数的range
 1013: 208,211
+1016:
+start binary indexed tree: 需要再次理解&背这个bit的用法
+No493
+1018:
+MergeSort -->算法需要再次review,有点忘记index的传递方式和merge & sort的实现了
+1022
+binaryIndexedTree 220,687

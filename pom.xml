@@ -10,9 +10,17 @@
 
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>1.7</java.version>
     </properties>
     <dependencies>
+        <!--alg4 dependency start-->
+        <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <version>8.7</version>
+            <!--<scope>test</scope>-->
+        </dependency>
+        <!--alg4 dependency end-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

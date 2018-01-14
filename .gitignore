@@ -3,4 +3,5 @@ TrainingStudio.iml
 target/
 src/main/resources
 .DS_Store
+*.zip
 life10Hours/

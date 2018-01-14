@@ -103,7 +103,7 @@ public class Deque<Item> implements Iterable<Item> {
 
     }
 
-    private class DequeIterator implements Iterator {
+    private class DequeIterator implements Iterator<Item> {
 
         private DequeNode current;
 
@@ -132,6 +132,11 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     public static void main(String[] args) {
+        Deque<Integer> rq = new Deque<Integer>();
+        rq.addFirst(12);
+        rq.addLast(13);
+        rq.removeFirst();
+        rq.removeLast();
     }
 }
 

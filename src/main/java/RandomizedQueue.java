@@ -1,6 +1,7 @@
 import edu.princeton.cs.algs4.StdRandom;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * Created by JianZhang on 1/13/18.
@@ -9,24 +10,20 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     private Item[] queueArray = null;
     private int size = 0;
 
+    public RandomizedQueue() {
+        queueArray = (Item[]) new Object[1];
+    }
+
 
     private void resizeArray(int capacity) {
 //        at this time, we just use the size of array, it's enough
         Item[] tmpItemArray = (Item[]) new Object[capacity];
-//        boolean[] tmpIsFullArray = new boolean[capacity];
 
-        for (int i = 0; i < capacity; i++) {
-//            tmpIsFullArray[i] = this.isFullArray[i];
+        for (int i = 0; i < size; i++) {
             tmpItemArray[i] = this.queueArray[i];
         }
-//        this.isFullArray = tmpIsFullArray;
         this.queueArray = tmpItemArray;
 
-    }
-
-    public RandomizedQueue() {
-//        isFullArray = new boolean[1];
-        queueArray = (Item[]) new Object[1];
     }
 
     public boolean isEmpty() {
@@ -38,6 +35,8 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
     public void enqueue(Item item) {
+        if (item == null) throw new java.lang.IllegalArgumentException();
+
         if (this.queueArray.length == this.size) {
             resizeArray(2 * size);
         }
@@ -47,20 +46,20 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
     public Item dequeue() {
-        if (isEmpty()) throw new java.util.NoSuchElementException();
+        if (isEmpty()) throw new NoSuchElementException();
         int index = StdRandom.uniform(size);
         Item result = this.queueArray[index];
-        this.queueArray[index] = this.queueArray[size];
-//        this.isFullArray[index] = this.isFullArray[size];
-        this.queueArray[size--] = null;
-//        this.isFullArray[size--] = false;
-        if (size == (this.queueArray.length / 4)) resizeArray(this.queueArray.length / 4);
+        // bug: wrong inde: this.queueArray[size] ->this.queueArray[size-1]
+        this.queueArray[index] = this.queueArray[size - 1];
+        this.queueArray[--size] = null;
+//        bug: adding condition size>0 -->avoid
+        if (size > 0 && size == (this.queueArray.length / 4)) resizeArray(this.queueArray.length / 4);
         return result;
     }
 
     public Item sample() {
 
-        if (isEmpty()) throw new java.util.NoSuchElementException();
+        if (isEmpty()) throw new NoSuchElementException();
         int index = StdRandom.uniform(size);
         return this.queueArray[index];
     }
@@ -70,7 +69,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
 
-    private class RandomizeQueueIterator implements Iterator {
+    private class RandomizeQueueIterator implements Iterator<Item> {
 
         private Item[] cloneArray = null;
         private int cloneSize = 0;
@@ -90,10 +89,11 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
         @Override
         public Item next() {
+            if (cloneSize <= 0) throw new NoSuchElementException();
             int index = StdRandom.uniform(cloneSize);
             Item result = cloneArray[index];
-            cloneArray[index] = cloneArray[cloneSize];
-            cloneArray[cloneSize--] = null;
+            cloneArray[index] = cloneArray[cloneSize - 1];
+            cloneArray[--cloneSize] = null;
             return result;
         }
 
@@ -104,6 +104,12 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
     public static void main(String[] args) {
-
+        RandomizedQueue<Integer> rq = new RandomizedQueue<Integer>();
+        rq.enqueue(620);
+        rq.dequeue();
+        rq.isEmpty();
+        rq.isEmpty();
+        rq.isEmpty();
+        rq.enqueue(661);
     }
 }

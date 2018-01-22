@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Comparator;
 
 import edu.princeton.cs.algs4.StdDraw;
@@ -50,11 +51,11 @@ public class Point implements Comparable<Point> {
      * @return the slope between this point and the specified point
      */
     public double slopeTo(Point that) {
-        if (that == null) throw new IllegalArgumentException();
+        if (that == null) throw new NullPointerException();
         if (this.x == that.x && this.y == that.y) return Double.NEGATIVE_INFINITY;
-        if (this.x == that.x) return +0.0;
-        if (this.y == that.y) return Double.POSITIVE_INFINITY;
-        return (double) (that.y - this.y) / (that.x - that.x);
+        if (this.x == that.x) return Double.POSITIVE_INFINITY;
+        if (this.y == that.y) return +0.0;
+        return (double) (that.y - this.y) / (that.x - this.x);
     }
 
     /**
@@ -70,7 +71,7 @@ public class Point implements Comparable<Point> {
      * argument point
      */
     public int compareTo(Point that) {
-        if (that == null) throw new IllegalArgumentException();
+        if (that == null) throw new NullPointerException();
         if (this.y == that.y && this.x == that.x) return 0;
         if (this.y < that.y || (this.y == that.y && this.x < that.x)) return -1;
         return 1;
@@ -82,19 +83,25 @@ public class Point implements Comparable<Point> {
      *
      * @return the Comparator that defines this ordering on points
      */
-    public Comparator<Point> slopeOrder(Point[] points) {
-        if (points == null || points.length != 2) throw new IllegalArgumentException();
+    public Comparator<Point> slopeOrder() {
+//        if (points == null && points.length != 2) throw new IllegalArgumentException();
 
         Comparator<Point> result = new Comparator<Point>() {
             @Override
             public int compare(Point o1, Point o2) {
-                if (slopeTo(o1) == slopeTo(o2)) return 0;
-                if (slopeTo(o1) < slopeTo(o2)) return -1;
+                double o1_slope = slopeTo(o1);
+                double o2_slope = slopeTo(o2);
+//                For the FE_FLOATING_POINT_EQUALITY issue, you should not be comparing two
+// float values directly with the == operator, since due to tiny rounding errors,
+// the values might be semantically "equal" for your application
+// even if the condition value1 == value2 does not hold true.
+                if (o1_slope == o2_slope) return 0;
+                if (o1_slope < o2_slope) return -1;
                 return 1;
 
             }
         };
-        result.compare(points[0], points[1]);
+//        result.compare(points[0], points[1]);
         return result;
     }
 
@@ -115,6 +122,24 @@ public class Point implements Comparable<Point> {
      * Unit tests the Point data type.
      */
     public static void main(String[] args) {
+        Point[] points = new Point[4];
+        points[1] = new Point(1, 2);
+        points[0] = new Point(5, 2);
+        points[2] = new Point(3, 2);
+        points[3] = new Point(3, 8);
+//        Point point = new Point(6, 3);
+        Arrays.sort(points, points[3].slopeOrder());
+
+        for (int i = 1; i < points.length; i++) {
+            System.out.println(points[i - 1].slopeTo(points[i]));
+        }
+//        for (Point p : points) {
+//            System.out.println(p);
+//        }
+
+
+//        Comparator<Point> rst = point.slopeOrder(points);
+//        System.out.print(rst);
         /* YOUR CODE HERE */
     }
 }

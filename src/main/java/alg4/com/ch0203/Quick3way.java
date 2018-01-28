@@ -22,7 +22,7 @@ public class Quick3way extends Quick {
 
         while (i <= gt) {// a[i..gt]are not yet examined.
             int cmp = a[i].compareTo(v);
-            if (cmp < 0) exch(a, lt++, i++);//已知a[i]<v,则 交换
+            if (cmp < 0) exch(a, lt++, i++);//已知a[i]<v,则 交换,v被放到了lt的左侧,lt++啦
             else if (cmp > 0) exch(a, i, gt--);//此时i不变,方便下次a[i]和v进行比较
             else i++;//a[i]和一样大,所以i++
         }

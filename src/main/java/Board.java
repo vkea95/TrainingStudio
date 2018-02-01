@@ -101,14 +101,6 @@ public class Board {
 
     public boolean equals(Object y) {
         if (y == null) return false;
-//        Board that = (Board) y;
-//        int[][] thatBlocks = that.blocks;
-//        if (dimension != that.dimension()) return false;
-//        for (int i = 0; i < dimension; i++) {
-//            for (int j = 0; j < dimension; j++) {
-//                if (blocks[i][j] != thatBlocks[i][j]) return false;
-//            }
-//        }
         return this.toString().equals(y.toString());
     }  // does this board equal y?
 

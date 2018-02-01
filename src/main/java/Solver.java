@@ -13,6 +13,7 @@ public class Solver {
     private int moveSteps;
     //    private List<BoardMovement> solutionOptionList;
     private List<Board> solutionList;
+//    private MinPQ
 
     private MinPQ<BoardMovement> minBMPQ;
 
@@ -41,8 +42,6 @@ public class Solver {
         while (!minBMPQ.isEmpty()) {
             minBM = minBMPQ.delMin();
             Board minBoard = minBM.board;
-//            System.out.println("minBM");
-//            System.out.println("minBM informati\r\n moves: " + minBM.moves + " priority: " + minBM.priority + " " + minBM.board);
 
             int minMove = minBM.moves;
 //            bug: It's hard to remove correct the useless board, because the condition is always changed
@@ -50,25 +49,6 @@ public class Solver {
 
 //          bug: if we remove the element from the solutionOptionList with comparing minMove, that's would be wrong
 //            we should check if whose neighbors contain the minBoard
-//            while (!solutionOptionList.isEmpty() && minMove <= solutionOptionList.get(solutionOptionList.size() - 1).moves) {
-//                solutionOptionList.remove(solutionOptionList.size() - 1);
-//            }
-//
-//            if (!solutionOptionList.isEmpty() && minMove <= solutionOptionList.get(solutionOptionList.size() - 1).moves) {
-//                for (int i = 0; i < solutionOptionList.size(); i++) {
-//                    for (Board tmpBd : solutionOptionList.get(i).board.neighbors()) {
-//                        if (tmpBd.equals(minBoard) && minMove == solutionOptionList.get(i).moves) {
-//                            i++;
-//                            while (i < solutionOptionList.size()) {
-//                                removedSolutionList.add(solutionOptionList.get(i));
-//                                solutionOptionList.remove(i);
-//                            }
-//                            break;
-//                        }
-//
-//                    }
-//                }
-//            }
             solutionOptionList.add(minBM);
             if (minBoard.isGoal()) {
                 isSolvable = true;
@@ -77,74 +57,42 @@ public class Solver {
             for (Board neighbor : minBoard.neighbors()) {
                 boolean usedFlag = false;
 //                bug2: 此处的插入操作会导致 之前删去的board,会在此时追加回来,所以需要再处理下,将从solutionList中抹掉的board 提出
+                Iterator<BoardMovement> bmIT = minBMPQ.iterator();
+//                bug3: 在考虑是否将neighbour放入队列的问题的时候,其实可以根据priority来考虑,比它小的不可能放进队伍?
+//                bug3: continuous 检测到equal的调用次数过多! 需要进行必要的调整,如何调整呢
+//                估计只能使用sort这个策略,即每次都是按照拍好序列的方式来处理
+//                while (bmIT.hasNext()) {
+//                    BoardMovement tmBM = bmIT.next();
+//                    if (tmBM.board.equals(neighbor)) {
+//                        usedFlag = true;
+//                        break;
+//                    }
+//                }
                 for (BoardMovement solution : solutionOptionList) {
                     if (solution.board.equals(neighbor)) {
                         usedFlag = true;
                         break;
                     }
                 }
-                BoardMovement newBM = new BoardMovement(neighbor, minMove + 1);
-                newBM.previous = minBM;
-                if (!usedFlag) minBMPQ.insert(newBM);
+                if (!usedFlag) {
+                    BoardMovement newBM = new BoardMovement(neighbor, minMove + 1);
+                    newBM.previous = minBM;
+                    minBMPQ.insert(newBM);
+                }
             }
 
-
-//            System.out.println("minBMPQ contents");
-//            for (BoardMovement bm : minBMPQ) {
-//                System.out.println("bm moves: " + bm.moves + " priority: " + bm.priority + " " + bm.board);
-//
-//            }
-
         }
-
-//        System.out.println("solution start");
-//        for (int i = 0; i < solutionOptionList.size(); i++) {
-//            BoardMovement bm = solutionOptionList.get(i);
-//            System.out.println("bm moves: " + bm.moves + " priority: " + bm.priority);
-//
-//        }
         solutionList = new ArrayList<>();
         if (!isSolvable) {
             moveSteps = -1;
         } else {
-            BoardMovement lastBoard = solutionOptionList.get(solutionOptionList.size() - 1);
-            moveSteps = lastBoard.moves;
+            moveSteps = minBM.moves;
 
-            while (lastBoard != null) {
-                solutionList.add(0, lastBoard.board);
-                lastBoard = lastBoard.previous;
+            while (minBM != null) {
+                solutionList.add(0, minBM.board);
+                minBM = minBM.previous;
             }
         }
-
-//        int tmp = moveSteps;
-//        while (tmp > 0) {
-//            BoardMovement tmpBM = null;
-//            for (BoardMovement bm : solutionOptionList) {
-//                if (bm.moves == tmp) {
-//                    tmpBM = bm;
-//                    break;
-//                }
-//            }
-//            int tmpIndex = 0;
-//            while (tmpIndex < solutionOptionList.size()) {
-//                if (solutionOptionList.get(tmpIndex).moves == tmp - 1) {
-//                    boolean equalFlg = false;
-//                    for (Board b : solutionOptionList.get(tmpIndex).board.neighbors()) {
-//                        if (b.equals(tmpBM.board)) {
-//                            equalFlg = true;
-//                            break;
-//                        }
-//                    }
-//                    if (!equalFlg) {
-//                        solutionOptionList.remove(tmpIndex);
-//                        continue;
-//                    }
-//                }
-//                tmpIndex++;
-//
-//            }
-//            tmp--;
-//        }
     }
 
     public boolean isSolvable() {

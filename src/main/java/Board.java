@@ -9,7 +9,7 @@ public class Board {
     private final int dimension;
     private int[][] blocks = null;
     private int manhattanNumber;
-//    List<Board> neighbourList = new ArrayList<>();
+    private List<Board> neighbourList = null;
 
     public Board(int[][] blocks) {
         if (blocks == null || blocks.length == 0 || blocks.length != blocks[0].length)
@@ -52,8 +52,6 @@ public class Board {
                     int goalRow = (blocks[i][j] - 1) / this.dimension;
                     int goalCol = (blocks[i][j] - 1) % this.dimension;
                     manhattanResult += Math.abs(goalRow - i) + Math.abs(goalCol - j);
-                }else {
-//                    compute neighbour list
                 }
             }
         }
@@ -77,77 +75,95 @@ public class Board {
 //        Board twin = new Board(blocks);
 //        blocks[this.dimension() - 1][0] = blocks[0][this.dimension() - 1];
 //        blocks[0][this.dimension() - 1] = temp1;
-        int index_1 = 0;
-        while (index_1 < dimension * dimension) {
-            if (blocks[index_1 / dimension][index_1 % dimension] != 0) {
+        int firstIndex = 0;
+        while (firstIndex < dimension * dimension) {
+            if (blocks[firstIndex / dimension][firstIndex % dimension] != 0) {
                 break;
             }
+            firstIndex++;
         }
-        int index_2 = index_1 + 1;
-        while (index_2 < dimension * dimension) {
-            if (blocks[index_2 / dimension][index_2 % dimension] != 0) {
+        int secondIndex = firstIndex + 1;
+        while (secondIndex < dimension * dimension) {
+            if (blocks[secondIndex / dimension][secondIndex % dimension] != 0) {
                 break;
             }
+            secondIndex++;
         }
-        int temp = blocks[index_1 / dimension][index_1 % dimension];
-        blocks[index_1 / dimension][index_1 % dimension] = blocks[index_2 / dimension][index_2 % dimension];
-        blocks[index_2 / dimension][index_2 % dimension] = temp;
+        int temp = blocks[firstIndex / dimension][firstIndex % dimension];
+        blocks[firstIndex / dimension][firstIndex % dimension] = blocks[secondIndex / dimension][secondIndex % dimension];
+        blocks[secondIndex / dimension][secondIndex % dimension] = temp;
         Board twin = new Board(blocks);
 
-        blocks[index_2 / dimension][index_2 % dimension] = blocks[index_1 / dimension][index_1 % dimension];
-        blocks[index_1 / dimension][index_1 % dimension] = temp;
+        blocks[secondIndex / dimension][secondIndex % dimension] = blocks[firstIndex / dimension][firstIndex % dimension];
+        blocks[firstIndex / dimension][firstIndex % dimension] = temp;
         return twin;
     }
 
     public boolean equals(Object y) {
+//        bug: confused to write code
+        if (this == y) return true;
         if (y == null) return false;
-        return this.toString().equals(y.toString());
+        if (y.getClass() != this.getClass()) return false;
+        Board that = (Board) y;
+        if (this.dimension != that.dimension)
+            return false;
+        for (int i = 0; i < dimension; i++) {
+            for (int j = 0; j < dimension; j++)
+                if (blocks[i][j] != that.blocks[i][j]) return false;
+        }
+        return true;
     }  // does this board equal y?
 
+    private List<Board> setNeighbors() {
+        List<Board> list = new ArrayList<>();
+        for (int i = 0; i < dimension; i++) {
+            for (int j = 0; j < dimension; j++) {
+                if (blocks[i][j] == 0) {
+                    if (i > 0) {
+                        blocks[i][j] = blocks[i - 1][j];
+                        blocks[i - 1][j] = 0;
+                        list.add(new Board(blocks));
+                        blocks[i - 1][j] = blocks[i][j];
+                        blocks[i][j] = 0;
+                    }
+                    if (j > 0) {
+                        blocks[i][j] = blocks[i][j - 1];
+                        blocks[i][j - 1] = 0;
+                        list.add(new Board(blocks));
+                        blocks[i][j - 1] = blocks[i][j];
+                        blocks[i][j] = 0;
+                    }
+                    if (i < dimension() - 1) {
+                        blocks[i][j] = blocks[i + 1][j];
+                        blocks[i + 1][j] = 0;
+                        list.add(new Board(blocks));
+                        blocks[i + 1][j] = blocks[i][j];
+                        blocks[i][j] = 0;
+                    }
+                    if (j < dimension() - 1) {
+                        blocks[i][j] = blocks[i][j + 1];
+                        blocks[i][j + 1] = 0;
+                        list.add(new Board(blocks));
+                        blocks[i][j + 1] = blocks[i][j];
+                        blocks[i][j] = 0;
+                    }
+
+                    break;
+                }
+            }
+        }
+
+        return list;
+    }
+
     public Iterable<Board> neighbors() {
-//        List<Board> list = new ArrayList<>();
-//
         Iterable<Board> result = new Iterable<Board>() {
             @Override
             public Iterator<Board> iterator() {
-                List<Board> list = new ArrayList<>();
-                for (int i = 0; i < dimension; i++) {
-                    for (int j = 0; j < dimension; j++) {
-                        if (blocks[i][j] == 0) {
-                            if (i > 0) {
-                                blocks[i][j] = blocks[i - 1][j];
-                                blocks[i - 1][j] = 0;
-                                list.add(new Board(blocks));
-                                blocks[i - 1][j] = blocks[i][j];
-                                blocks[i][j] = 0;
-                            }
-                            if (j > 0) {
-                                blocks[i][j] = blocks[i][j - 1];
-                                blocks[i][j - 1] = 0;
-                                list.add(new Board(blocks));
-                                blocks[i][j - 1] = blocks[i][j];
-                                blocks[i][j] = 0;
-                            }
-                            if (i < dimension() - 1) {
-                                blocks[i][j] = blocks[i + 1][j];
-                                blocks[i + 1][j] = 0;
-                                list.add(new Board(blocks));
-                                blocks[i + 1][j] = blocks[i][j];
-                                blocks[i][j] = 0;
-                            }
-                            if (j < dimension() - 1) {
-                                blocks[i][j] = blocks[i][j + 1];
-                                blocks[i][j + 1] = 0;
-                                list.add(new Board(blocks));
-                                blocks[i][j + 1] = blocks[i][j];
-                                blocks[i][j] = 0;
-                            }
-
-                            break;
-                        }
-                    }
+                if (neighbourList == null) {
+                    neighbourList = setNeighbors();
                 }
-                return list.iterator();
+                return neighbourList.iterator();
             }
         };
         return result;
@@ -155,23 +171,25 @@ public class Board {
 
 
     public String toString() {
-        String result = new String();
-        result += this.dimension() + "\r\n";
+        StringBuilder result = new StringBuilder();
+        result.append(this.dimension());
+        result.append("\r\n");
         for (int i = 0; i < dimension; i++) {
             for (int j = 0; j < dimension; j++) {
-                result += " " + this.blocks[i][j];
+
+                result.append(" ");
+                result.append(this.blocks[i][j]);
             }
-            result += "\r\n";
+            result.append("\r\n");
         }
 
-        return result;
+        return result.toString();
     }         // string representation of this board (in the output format specified below)
 
     public static void main(String[] args) {
-        Board board = new Board(null);
-        Iterable<Board> iterable = board.neighbors();
-        for (Board b : iterable) {
-
-        }
-    }// unit tests (not graded)
+//        Board board = new Board(null);
+//        Iterable<Board> iterable = board.neighbors();
+//        for (Board b : iterable) {
+//        }
+    } // unit tests (not graded)
 }

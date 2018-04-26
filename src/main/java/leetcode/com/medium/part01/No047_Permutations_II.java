@@ -60,7 +60,7 @@ public class No047_Permutations_II {
                 System.out.print(result.get(i).get(j) > 0 ? " " + result.get(i).get(j) + " " : result.get(i).get(j) + " ");
             System.out.println();
         }
-        System.out.println("result.size(): " + result.size());
+        System.out.println("result.heights(): " + result.size());
         System.out.println("8!:" + 8 * 7 * 6 * 5 * 4 * 3 * 2);
         return result;
     }

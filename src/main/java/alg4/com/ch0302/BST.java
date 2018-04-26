@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
  * The {@code BST} class represents an ordered symbol table of generic
  * key-value pairs.
  * It supports the usual <em>put</em>, <em>get</em>, <em>contains</em>,
- * <em>delete</em>, <em>size</em>, and <em>is-empty</em> methods.
+ * <em>delete</em>, <em>heights</em>, and <em>is-empty</em> methods.
  * It also provides ordered methods for finding the <em>minimum</em>,
  * <em>maximum</em>, <em>floor</em>, <em>select</em>, <em>ceiling</em>.
  * It also provides a <em>keys</em> method for iterating over all of the keys.
@@ -27,7 +27,7 @@ import java.util.NoSuchElementException;
  * <em>maximum</em>, <em>ceiling</em>, <em>floor</em>, <em>select</em>, and
  * <em>rank</em>  operations each take
  * linear time in the worst case, if the tree becomes unbalanced.
- * The <em>size</em>, and <em>is-empty</em> operations take constant time.
+ * The <em>heights</em>, and <em>is-empty</em> operations take constant time.
  * Construction takes constant time.
  * <p>
  * For additional documentation, see <a href="http://algs4.cs.princeton.edu/32bst">Section 3.2</a> of

@@ -20,7 +20,7 @@ public class Ex010314 {
         for (int i = 0; i < 100; i++) {
             StdOut.println(resizingArrayQueueOfString.dequeue());
         }
-        StdOut.println("resizingArrayQueueOfString size:" + resizingArrayQueueOfString.count);
+        StdOut.println("resizingArrayQueueOfString heights:" + resizingArrayQueueOfString.count);
 
         for (int i = 0; i < 100; i++) {
             resizingArrayQueueOfString.enqueue(i);
@@ -28,7 +28,7 @@ public class Ex010314 {
         for (int i = 0; i < 80; i++) {
             StdOut.println(resizingArrayQueueOfString.dequeue());
         }
-        StdOut.println("resizingArrayQueueOfString size:" + resizingArrayQueueOfString.count);
+        StdOut.println("resizingArrayQueueOfString heights:" + resizingArrayQueueOfString.count);
     }
 }
 

@@ -33,7 +33,7 @@ public class WeightedQuickUnionByHeightUF extends WeightedQuickUnionUF {
         if (height[i] < height[j]) {
             parent[i] = j;
             //bug1:高度不必增加,因为矮树总是挂在高树的下面
-//            height[j] += size[i];
+//            height[j] += heights[i];
         } else if (height[i] > height[j]) {
             //bug1:高度不必增加,因为矮树总是挂在高树的下面
             parent[j] = i;

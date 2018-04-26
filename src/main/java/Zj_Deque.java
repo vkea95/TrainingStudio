@@ -4,12 +4,12 @@ import java.util.NoSuchElementException;
 /**
  * Created by JianZhang on 1/13/18.
  */
-public class Deque<Item> implements Iterable<Item> {
+public class Zj_Deque<Item> implements Iterable<Item> {
     private int size = 0;
     private DequeNode firstNode = null;
     private DequeNode lastNode = null;
 
-    public Deque() {
+    public Zj_Deque() {
         size = 0;
     }
 
@@ -132,7 +132,7 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     public static void main(String[] args) {
-        Deque<Integer> rq = new Deque<Integer>();
+        Zj_Deque<Integer> rq = new Zj_Deque<Integer>();
         rq.addFirst(12);
         rq.addLast(13);
         rq.removeFirst();

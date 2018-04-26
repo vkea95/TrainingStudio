@@ -6,6 +6,11 @@ import java.util.List;
  * Created by JianZhang on 1/28/18.
  */
 public class Board {
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
     private final int dimension;
     private int[][] blocks = null;
     private int manhattanNumber;

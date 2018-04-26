@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
  * The {@code BST} class represents an ordered symbol table of generic
  * key-value pairs.
  * It supports the usual <em>put</em>, <em>get</em>, <em>contains</em>,
- * <em>delete</em>, <em>size</em>, and <em>is-empty</em> methods.
+ * <em>delete</em>, <em>heights</em>, and <em>is-empty</em> methods.
  * It also provides ordered methods for finding the <em>minimum</em>,
  * <em>maximum</em>, <em>floor</em>, and <em>ceiling</em>.
  * It also provides a <em>keys</em> method for iterating over all of the keys.
@@ -32,7 +32,7 @@ import java.util.NoSuchElementException;
  * The <em>put</em>, <em>contains</em>, <em>remove</em>, <em>minimum</em>,
  * <em>maximum</em>, <em>ceiling</em>, and <em>floor</em> operations each take
  * logarithmic time in the worst case, if the tree becomes unbalanced.
- * The <em>size</em>, and <em>is-empty</em> operations take constant time.
+ * The <em>heights</em>, and <em>is-empty</em> operations take constant time.
  * Construction takes constant time.
  * <p>
  * For additional documentation, see <a href="http://algs4.cs.princeton.edu/33balanced">Section 3.3</a> of
@@ -521,7 +521,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
     // the key of rank k in the subtree rooted at x
     private Node select(Node x, int k) {
         // assert x != null;
-        // assert k >= 0 && k < size(x);
+        // assert k >= 0 && k < heights(x);
         int t = size(x.left);
         if (t > k) return select(x.left, k);
         else if (t < k) return select(x.right, k - t - 1);
@@ -608,8 +608,8 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
      *                                  is {@code null}
      */
     public int size(Key lo, Key hi) {
-        if (lo == null) throw new IllegalArgumentException("first argument to size() is null");
-        if (hi == null) throw new IllegalArgumentException("second argument to size() is null");
+        if (lo == null) throw new IllegalArgumentException("first argument to heights() is null");
+        if (hi == null) throw new IllegalArgumentException("second argument to heights() is null");
 
         if (lo.compareTo(hi) > 0) return 0;
         if (contains(hi)) return rank(hi) - rank(lo) + 1;
@@ -645,7 +645,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         return isBST(x.left, min, x.key) && isBST(x.right, x.key, max);
     }
 
-    // are the size fields correct?
+    // are the heights fields correct?
     private boolean isSizeConsistent() {
         return isSizeConsistent(root);
     }

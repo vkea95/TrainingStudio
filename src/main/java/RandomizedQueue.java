@@ -16,7 +16,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
 
     private void resizeArray(int capacity) {
-//        at this time, we just use the size of array, it's enough
+//        at this time, we just use the heights of array, it's enough
         Item[] tmpItemArray = (Item[]) new Object[capacity];
 
         for (int i = 0; i < size; i++) {
@@ -41,7 +41,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             resizeArray(2 * size);
         }
         this.queueArray[size++] = item;
-//        this.isFullArray[size] = true;
+//        this.isFullArray[heights] = true;
 
     }
 
@@ -49,10 +49,10 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         if (isEmpty()) throw new NoSuchElementException();
         int index = StdRandom.uniform(size);
         Item result = this.queueArray[index];
-        // bug: wrong inde: this.queueArray[size] ->this.queueArray[size-1]
+        // bug: wrong inde: this.queueArray[heights] ->this.queueArray[heights-1]
         this.queueArray[index] = this.queueArray[size - 1];
         this.queueArray[--size] = null;
-//        bug: adding condition size>0 -->avoid
+//        bug: adding condition heights>0 -->avoid
         if (size > 0 && size == (this.queueArray.length / 4)) resizeArray(this.queueArray.length / 4);
         return result;
     }

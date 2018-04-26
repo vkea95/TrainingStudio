@@ -79,10 +79,10 @@ public class QuickUnionUF {
             sb.append(", ");
         }
 //        sb.append("}");
-//        sb.append(" size:{");
+//        sb.append(" heights:{");
 //
 //        for (int i = 0; i < parent.length; i++) {
-//            sb.append(size[i]);
+//            sb.append(heights[i]);
 //            sb.append(", ");
 //        }
         sb.append("}}");

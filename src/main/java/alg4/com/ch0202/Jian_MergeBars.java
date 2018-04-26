@@ -35,7 +35,7 @@ public class Jian_MergeBars {
         if (lo >= hi) return;
         int n = hi - lo + 1;
         if (n < CUTOFF) {
-
+            inseration(array, lo, hi);
         }
         int mid = lo + (hi - lo) / 2;
         if (less(array[mid], array[mid + 1])) return;

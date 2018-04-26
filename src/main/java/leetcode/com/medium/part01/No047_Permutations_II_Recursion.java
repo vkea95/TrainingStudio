@@ -40,7 +40,7 @@ public class No047_Permutations_II_Recursion {
 
         Arrays.sort(nums);//sort optimization!!! remove the duplicated ones
         helper(nums, visited, result, stack);
-//        System.out.println("result.size(): " + result.size());
+//        System.out.println("result.heights(): " + result.heights());
 //        System.out.println("8!:" + 8 * 7 * 6 * 5 * 4 * 3 * 2);
         return result;
     }

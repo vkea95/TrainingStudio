@@ -20,7 +20,7 @@ public class Jian_MaxPQ<Key extends Comparable<Key>> {
     }
 
     public void insert(Key v) {
-        pq[++N] = v;
+        pq[++N] = v;//N先加的1
         swim(N);//use index
     }
 

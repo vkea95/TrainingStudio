@@ -16,7 +16,7 @@ import java.util.*;
  * <p>
  * Note:
  * You may assume k is always valid, 1 ≤ k ≤ number of unique elements.
- * Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
+ * Your algorithm's time complexity must be better than O(n log n), where n is the array's heights.
  * ****************************************************
  * Analysis:
  * 1.放入HashMap:
@@ -74,7 +74,7 @@ public class No347_Top_K_Frequent_Elements {
         priorityQueue.offer(new MyEntry(nums[nums.length - 1], count));
 
         //bug3:因为循环中会对priorityQueue的进行poll操作,所以其长度一直在不断缩小,
-        // 那么就不能在for循环的条件判断中使用priorityQueue.size()!!!极其重要哦!!!!
+        // 那么就不能在for循环的条件判断中使用priorityQueue.heights()!!!极其重要哦!!!!
         int size = priorityQueue.size();
         for (int i = 0; i < k && i < size; i++) {
             rst.add(priorityQueue.poll().key);

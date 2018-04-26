@@ -171,17 +171,56 @@ public class Solver {
 //        String abc = "def";
 //        String def = "def";
 //        System.out.print(abc.equals(def));
-        int[] array = new int[0];
-        System.out.print("The result is : " + Solver.findNumber(array, 0, -1, 1) + "\n");
-        array = new int[1];
-        array[0] = 1;
-        System.out.print("The result is : " + Solver.findNumber(array, 0, array.length - 1, 1) + "\n");
-        array = new int[4];
-        array[0] = -10;
-        array[1] = -2;
-        array[2] = 0;
-        array[3] = 1;
-        System.out.print("The result is : " + Solver.findNumber(array, 0, array.length - 1, -2) + "\n");
-        return;
-    } // solve a slider puzzle (given below)
+//        int[] array = new int[0];
+//        System.out.print("The result is : " + Solver.findNumber(array, 0, -1, 1) + "\n");
+//        array = new int[1];
+//        array[0] = 1;
+//        System.out.print("The result is : " + Solver.findNumber(array, 0, array.length - 1, 1) + "\n");
+//        array = new int[4];
+//        array[0] = -10;
+//        array[1] = -2;
+//        array[2] = 0;
+//        array[3] = 1;
+//        System.out.print("The result is : " + Solver.findNumber(array, 0, array.length - 1, -2) + "\n");
+        Solver solver =new Solver();
+        solver.getResult2
+
+
+
+                ();
+    }
+
+    public Solver(){};
+    // solve a slider puzzle (given below)
+    void swap(String str1, String str2){
+        String temp = str1;
+        str1 = str2;
+        str2 = temp;
+    }
+
+    void setNewValue(String str1){
+        str1 = new String("Bittiger");
+    }
+
+    void getResult(){
+        String str1 = "Bit";
+        String str2 = "Tigger";
+        swap(str1, str2);
+        System.out.println("str1:  " + str1);
+        System.out.println("str2:  " + str2);
+        setNewValue(str1);
+        System.out.println("str1:  " + str1);
+    }
+    void getResult2() {
+        String str1 = "Bittiger";
+        String str2 = "Bittiger";
+        String str3 = new String("Bittiger");
+        String str4 = new String("Bit") + "tiger";
+
+        System.out.println(str1 == str2);
+        System.out.println(str1 == str3);
+        System.out.println(str1 == str4);
+    }
+
+
 }

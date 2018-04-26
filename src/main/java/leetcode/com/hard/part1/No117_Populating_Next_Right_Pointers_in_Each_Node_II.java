@@ -56,7 +56,7 @@ public class No117_Populating_Next_Right_Pointers_in_Each_Node_II {
             for (int i = 0; i < size; i++) {
                 TreeLinkNode node = queue.poll();
 
-                //bug1: forget to judge the (size-1) and set null to next pointer
+                //bug1: forget to judge the (heights-1) and set null to next pointer
                 node.next = i == size - 1 ? null : queue.peek();
                 if (node.left != null) queue.offer(node.left);
                 if (node.right != null) queue.offer(node.right);

@@ -66,3 +66,34 @@ public class No095_Unique_Binary_Search_Trees_II {
 
 }
 
+class Solution {
+    private int binarySearch(int[] nums, int target) {
+        if (nums == null || nums.length == 0 || nums[0] >= target) return -1;
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left < right) {
+            int mid = (left + right + 1) / 2;
+            if (nums[mid] >= target) {
+                right = mid - 1;
+            } else {
+                left = mid;
+            }
+
+        }
+        return left;
+    }
+
+    public int[] searchRange(int[] nums, int target) {
+
+        int[] result = {-1, -1};
+
+        int left = binarySearch(nums, target);
+        int right = binarySearch(nums, target + 1);
+        if (left < right) {
+            result[0] = left + 1;//the next one is the answer
+            result[1] = right;
+        }
+        return result;
+    }
+}

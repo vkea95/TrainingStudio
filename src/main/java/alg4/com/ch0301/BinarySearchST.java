@@ -35,7 +35,7 @@ import java.util.NoSuchElementException;
  *  The {@code BST} class represents an ordered symbol table of generic
  *  key-value pairs.
  *  It supports the usual <em>put</em>, <em>get</em>, <em>contains</em>,
- *  <em>delete</em>, <em>size</em>, and <em>is-empty</em> methods.
+ *  <em>delete</em>, <em>heights</em>, and <em>is-empty</em> methods.
  *  It also provides ordered methods for finding the <em>minimum</em>,
  *  <em>maximum</em>, <em>floor</em>, <em>select</em>, and <em>ceiling</em>.
  *  It also provides a <em>keys</em> method for iterating over all of the keys.
@@ -53,7 +53,7 @@ import java.util.NoSuchElementException;
  *  {@code equals()} or {@code hashCode()}.
  *  The <em>put</em> and <em>remove</em> operations each take linear time in
  *  the worst case; the <em>contains</em>, <em>ceiling</em>, <em>floor</em>,
- *  and <em>rank</em> operations take logarithmic time; the <em>size</em>,
+ *  and <em>rank</em> operations take logarithmic time; the <em>heights</em>,
  *  <em>is-empty</em>, <em>minimum</em>, <em>maximum</em>, and <em>select</em>
  *  operations take constant time. Construction takes constant time.
  *  <p>
@@ -354,8 +354,8 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
      *         is {@code null}
      */
     public int size(Key lo, Key hi) {
-        if (lo == null) throw new IllegalArgumentException("first argument to size() is null");
-        if (hi == null) throw new IllegalArgumentException("second argument to size() is null");
+        if (lo == null) throw new IllegalArgumentException("first argument to heights() is null");
+        if (hi == null) throw new IllegalArgumentException("second argument to heights() is null");
 
         if (lo.compareTo(hi) > 0) return 0;
         if (contains(hi)) return rank(hi) - rank(lo) + 1;

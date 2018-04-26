@@ -6,7 +6,7 @@ package alg4.com.ch0105;
 public class WeightedQuickUnionUF {
 
     protected int[] parent = null; // parent[i] = parent of i
-    protected int count;   // size[i] = number of sites in subtree rooted at i
+    protected int count;   // heights[i] = number of sites in subtree rooted at i
     protected int[] size = null;//各个根节点所对应的分量的大小:节点数量
     protected int hitArray = 0;
 
@@ -104,7 +104,7 @@ public class WeightedQuickUnionUF {
             sb.append(", ");
         }
         sb.append("}");
-        sb.append(" size:{");
+        sb.append(" heights:{");
 
         for (int i = 0; i < parent.length; i++) {
             sb.append(size[i]);

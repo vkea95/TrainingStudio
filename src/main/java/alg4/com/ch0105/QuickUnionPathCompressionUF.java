@@ -32,7 +32,7 @@ public class QuickUnionPathCompressionUF extends QuickUnionUF {
             hitArray++;
         }
 
-        return p;
+        return root;
     }
 
 }

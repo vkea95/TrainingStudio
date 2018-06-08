@@ -7,7 +7,7 @@ package leetcode.com.pickup1.hard;
  * https://leetcode.com/problems/remove-duplicate-letters/
  * *****************************************************************************
  * Description:
- * Given a string which contains only lowercase letters, remove duplicate letters so that every letter appear once
+ * Given a string which contains only lowercase letters, remove dupNumber letters so that every letter appear once
  * and only once. You must make sure your result is the smallest in lexicographical(adj. 辞典编纂的) order among
  * all possible results.
  * Example:

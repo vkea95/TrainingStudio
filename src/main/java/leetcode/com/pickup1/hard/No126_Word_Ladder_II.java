@@ -97,7 +97,7 @@ public class No126_Word_Ladder_II {
             //bug2:图形逆转后,直接返回就可以了,否则结果会错误的
             return;
         }
-        //remove all forward/backward from dict to avoid duplicate addition
+        //remove all forward/backward from dict to avoid dupNumber addition
         //opt1:delete set from set
         dict.removeAll(forward);
         dict.removeAll(backward);
@@ -211,7 +211,7 @@ public class No126_Word_Ladder_II {
             return;
         }
 
-        //remove all forward/backward from dict to avoid duplicate addition
+        //remove all forward/backward from dict to avoid dupNumber addition
         //new technology:hashmap 可以删除指定的set的数据集
         //bug1:要删除所有的元素，并不是一个：remove-->removeAll
         dict.removeAll(forward);

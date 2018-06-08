@@ -16,7 +16,7 @@ package leetcode.com.medium.part22;
  * 同I是一样一样的
  */
 public class No275_H_Index_II {
-    public int hIndex(int[] citations) {
+    public int hIndex_2(int[] citations) {
         int h = 0;
         if (citations == null) return h;
 
@@ -26,6 +26,26 @@ public class No275_H_Index_II {
         }
 
         return h;
+
+    }
+
+    public int hIndex(int[] citations) {
+
+        int n = citations.length;
+        int left = 0;
+        int right = n - 1;
+        while (left <= right) {
+            int mid = (left + right) >> 1;
+            if ((n - mid) == citations[mid]) {
+                return n - mid;
+            } else if (citations[mid] > (n - mid)) {
+                right = mid - 1; // remove mid
+
+            } else {
+                left = mid + 1; // remove mid
+            }
+        }
+        return n - left;
 
     }
 }

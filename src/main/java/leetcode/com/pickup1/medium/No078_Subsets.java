@@ -11,7 +11,7 @@ import java.util.List;
  * https://leetcode.com/problems/subsets/
  * ****************************************************
  * Given a set of distinct integers, nums, return all possible subsets.
- * Note: The solution set must not contain duplicate subsets.
+ * Note: The solution set must not contain dupNumber subsets.
  * For example,
  * If nums = [1,2,3], a solution is:
  * [

@@ -18,7 +18,7 @@ import java.util.zip.Inflater;
  * Thoughts:
  * 1.ask for if i can change order of the input array
  * 2.if i can resort the array, then try to use leftBoundar & rightBoundary concepts
- * 3.then how remove the duplicate solution
+ * 3.then how remove the dupNumber solution
  * 4.看了一眼答案后,才记起来如何解决问题,
  * 5.问题的关键在于,
  * 首先,要排序,

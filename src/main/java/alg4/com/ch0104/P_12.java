@@ -7,7 +7,7 @@ package alg4.com.ch0104;
  */
 public class P_12 {
     /*
-    This method is working for non-duplicate element.
+    This method is working for non-dupNumber element.
      */
     public static void findSame(int[] a, int[] b) {
         int i = 0;

@@ -14,7 +14,7 @@ import java.util.List;
  * Find all unique triplets in the array which gives the sum of zero.
  * Note:
  * Elements in a triplet (a,b,c) must be in non-descending order. (ie, a ≤ b ≤ c)
- * The solution set must not contain duplicate triplets.
+ * The solution set must not contain dupNumber triplets.
  * For example, given array S = {-1 0 1 2 -1 -4},
  * A solution set is:
  * (-1, 0, 1)
@@ -36,7 +36,7 @@ public class No015_3Sum {
 
         for (int i = 0; i < nums.length - 2; i++) {
             if (i != 0 && nums[i] == nums[i - 1]) {
-                continue;//to skip duplicate numbers; e.g [0,0,0,0]
+                continue;//to skip dupNumber numbers; e.g [0,0,0,0]
             }
             int left = i + 1;
             int right = nums.length - 1;

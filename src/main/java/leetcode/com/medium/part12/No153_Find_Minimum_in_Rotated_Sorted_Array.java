@@ -9,7 +9,7 @@ package leetcode.com.medium.part12;
  * Suppose a sorted array is rotated at some pivot unknown to you beforehand.
  * (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
  * Find the minimum element.
- * You may assume no duplicate exists in the array.
+ * You may assume no dupNumber exists in the array.
  * *************************************************************************
  * Solution:
  * 1.用二分法找到第一个比末尾元素的value，他就是答案

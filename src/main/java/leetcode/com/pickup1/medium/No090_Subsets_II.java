@@ -13,7 +13,7 @@ import java.util.List;
  * Description:
  * Given a collection of integers that might contain duplicates, nums, return all possible subsets.
  * <p>
- * Note: The solution set must not contain duplicate subsets.
+ * Note: The solution set must not contain dupNumber subsets.
  * <p>
  * For example,
  * If nums = [1,2,2], a solution is:

@@ -19,7 +19,7 @@ package leetcode.com.easy.part2;
  * Write a function to return a hint according to the secret number and friend's guess, use A to indicate the bulls
  * and B to indicate the cows. In the above example, your function should return "1A3B".
  * <p>
- * Please note that both secret number and friend's guess may contain duplicate digits, for example:
+ * Please note that both secret number and friend's guess may contain dupNumber digits, for example:
  * <p>
  * Secret number:  "1123"
  * Friend's guess: "0111"

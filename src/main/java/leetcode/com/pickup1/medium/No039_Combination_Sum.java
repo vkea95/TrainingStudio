@@ -16,7 +16,7 @@ import java.util.List;
  * The same repeated number may be chosen from C unlimited number of times.
  * Note:
  * All numbers (including target) will be positive integers.
- * The solution set must not contain duplicate combinations.
+ * The solution set must not contain dupNumber combinations.
  * For example, given candidate set [2, 3, 6, 7] and target 7,
  * A solution set is:
  * [

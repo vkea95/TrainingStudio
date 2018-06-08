@@ -49,7 +49,7 @@ public class No164_Maximum_Gap {
         if (avgGap==0) avgGap++;
         //bug5:Memory Limit Exceeded: not mul but divide
         int len = (max - min) / avgGap + 1;
-        //bug3:names of variable are duplicate
+        //bug3:names of variable are dupNumber
         int[] minBucket = new int[len];
         int[] maxBucket = new int[len];
         for (int i = 0; i < n; i++) {

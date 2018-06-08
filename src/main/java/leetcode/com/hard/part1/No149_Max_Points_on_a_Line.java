@@ -52,7 +52,7 @@ public class No149_Max_Points_on_a_Line {
                 if (q.x == p.x && q.y == p.y) {
                     //发现重复的点,之后,对最大的值进行加算
                     duplicate++;
-                    // result += duplicate+1;
+                    // result += dupNumber+1;
                     //bug2:因为duplicate是截止目前所出现的,那么就不能把他和result加在一起
                     result = Math.max(result, duplicate + 1);
 
@@ -69,7 +69,7 @@ public class No149_Max_Points_on_a_Line {
 
             }
             //bug1:duplicate有可能在其他地方已经被计算过了,就不在我们的计算范围内了呢啊
-//            result += duplicate;
+//            result += dupNumber;
         }
 
         return result;

@@ -25,7 +25,7 @@ import java.util.*;
  * Note:
  * The input prerequisites is a graph represented by a list of edges, not adjacency matrices.
  * Read more about how a graph is represented.
- * You may assume that there are no duplicate edges in the input prerequisites.
+ * You may assume that there are no dupNumber edges in the input prerequisites.
  * click to show more hints.
  * <p>
  * Solutions

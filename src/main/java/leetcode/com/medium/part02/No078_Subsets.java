@@ -14,7 +14,7 @@ import java.util.List;
  * Given a set of distinct integers, nums, return all possible subsets.
  * Note:
  * Elements in a subset must be in non-descending order.
- * The solution set must not contain duplicate subsets.
+ * The solution set must not contain dupNumber subsets.
  * For example,
  * If nums = [1,2,3], a solution is:
  * [

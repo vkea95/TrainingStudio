@@ -18,7 +18,7 @@ import java.util.List;
  * <p>
  * Note:
  * All numbers (including target) will be positive integers.
- * The solution set must not contain duplicate combinations.
+ * The solution set must not contain dupNumber combinations.
  * For example, given candidate set [10, 1, 2, 7, 6, 1, 5] and target 8,
  * A solution set is:
  * [

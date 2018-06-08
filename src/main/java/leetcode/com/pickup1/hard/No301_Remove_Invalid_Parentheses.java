@@ -40,13 +40,13 @@ import java.util.*;
  * we have more ‘)’ than ‘(‘ in the prefix.
  * <p>
  * To make the prefix valid, we need to remove a ‘)’. The problem is: which one? The answer is any one in the prefix.
- * However, if we remove any one, we will generate duplicate results, for example: s = ()),
+ * However, if we remove any one, we will generate dupNumber results, for example: s = ()),
  * we can remove s[1] or s[2] but the result is the same (). Thus, we restrict ourself to remove the first )
  * in a series of concecutive )s.
  * <p>
  * After the removal, the prefix is then valid. We then call the function recursively to solve the rest of the string.
  * However, we need to keep another information: the last removal position. If we do not have this position,
- * we will generate duplicate by removing two ‘)’ in two steps only with a different order.
+ * we will generate dupNumber by removing two ‘)’ in two steps only with a different order.
  * For this, we keep tracking the last removal position and only remove ‘)’ after that.
  * <p>
  * Now one may ask. What about ‘(‘? What if s = ‘(()(()’ in which we need remove ‘(‘?

@@ -14,7 +14,7 @@ import java.util.*;
  * Format
  * The graph contains n nodes which are labeled from 0 to n - 1. You will be given the number n and a list
  * of undirected edges (each edge is a pair of labels).
- * You can assume that no duplicate edges will appear in edges. Since all edges are undirected,
+ * You can assume that no dupNumber edges will appear in edges. Since all edges are undirected,
  * [0, 1] is the same as [1, 0] and thus will not appear together in edges.
  * Example 1:
  * <p>

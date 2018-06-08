@@ -95,7 +95,7 @@ public class No126_Word_Ladder_II {
             return;
         }
 
-        //remove all forward/backward from dict to avoid duplicate addition
+        //remove all forward/backward from dict to avoid dupNumber addition
         //new technology:hashmap 可以删除指定的set的数据集
         //bug1:要删除所有的元素，并不是一个：remove-->removeAll
         dict.removeAll(forward);

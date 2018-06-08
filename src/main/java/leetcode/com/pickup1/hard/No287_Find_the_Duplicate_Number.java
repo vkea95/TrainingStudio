@@ -8,14 +8,14 @@ package leetcode.com.pickup1.hard;
  * ****************************************************
  * Description:
  * Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive),
- * prove that at least one duplicate number must exist. Assume that there is only one duplicate number,
- * find the duplicate one.
+ * prove that at least one dupNumber number must exist. Assume that there is only one dupNumber number,
+ * find the dupNumber one.
  * <p>
  * Note:
  * You must not modify the array (assume the array is read only).
  * You must use only constant, O(1) extra space.
  * Your runtime complexity should be less than O(n2).
- * There is only one duplicate number in the array, but it could be repeated more than once.
+ * There is only one dupNumber number in the array, but it could be repeated more than once.
  * ****************************************************
  * Thought:
  * 1.重复出现的数字只有一个,但是出现次数可能不止两次

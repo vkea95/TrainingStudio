@@ -8,7 +8,7 @@ package leetcode.com.pickup1.easy;
  * **************************************************************
  * Description:
  * Given a non-negative number represented as an array of digits, plus one to the number.
- * The digits are stored such that the most significant digit is at the head of the list.
+ * The digits are stored such that the most significant digit is at the head of the indexList.
  * **************************************************************
  * Hindsight:
  * 1.题目的关键在于如何处理进位,如果有进位,则一直要处理到进位为零

@@ -8,7 +8,7 @@ import leetcode.com.util.ListNode;
  * https://leetcode.com/problems/insertion-sort-list/
  * *******************************************************
  * Description:
- * Sort a linked list using insertion sort.
+ * Sort a linked indexList using insertion sort.
  * *******************************************************
  * Solution:
  * 将head的结点放入node的链表中，因为head的链表属于无序状态，所以，每次都要从node的第一项开始循环判断

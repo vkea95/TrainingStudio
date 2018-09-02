@@ -18,8 +18,8 @@ public class No046_Permutations_I_Non_Recursion {
     }
 
     /**
-     * @param nums: A list of integers.
-     * @return: A list of permutations.
+     * @param nums: A indexList of integers.
+     * @return: A indexList of permutations.
      * **************************************************
      * Solutions:
      * the index of the element in the array is stored in the stack

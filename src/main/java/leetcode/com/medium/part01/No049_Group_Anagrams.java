@@ -55,7 +55,7 @@ public class No049_Group_Anagrams {
 
             List<String> values = entry.getValue();
 
-            //since we want lexicographic order of the result, we sort the list
+            //since we want lexicographic order of the result, we sort the indexList
             Collections.sort(values);
 
             result.add(values);

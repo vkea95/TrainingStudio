@@ -9,7 +9,7 @@ import leetcode.com.util.ListNode;
  * https://leetcode.com/problems/reorder-list/
  * ****************************************************
  * Description:
- * Given a singly linked list L: L0→L1→…→Ln-1→Ln,
+ * Given a singly linked indexList L: L0→L1→…→Ln-1→Ln,
  * reorder it to: L0→Ln→L1→Ln-1→L2→Ln-2→…
  * <p>
  * You must do this in-place without altering the nodes' values.
@@ -51,7 +51,7 @@ public class No143_Reorder_List {
             }
             slow = slow.next;
         }
-        //reversing node list
+        //reversing node indexList
         fast = slow.next;
         slow.next = null;
         ListNode prev = new ListNode(-1);
@@ -96,7 +96,7 @@ public class No143_Reorder_List {
             }
             slow = slow.next;
         }
-        //reversing node list
+        //reversing node indexList
         fast = slow.next;
         slow.next = null;
         ListNode backDummy = new ListNode(-1);

@@ -22,7 +22,7 @@ import java.util.ArrayList;
  */
 public class No053_Maximum_Subarray_II {
     /**
-     * @param nums: A list of integers
+     * @param nums: A indexList of integers
      * @return: An integer denotes the sum of max two non-overlapping subarrays
      */
     public int maxTwoSubArrays(ArrayList<Integer> nums) {

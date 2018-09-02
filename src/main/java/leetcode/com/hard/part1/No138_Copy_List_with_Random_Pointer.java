@@ -12,8 +12,8 @@ import java.util.Iterator;
  * https://leetcode.com/problems/copy-list-with-random-pointer/
  * ***************************************************************
  * Description:
- * A linked list is given such that each node contains an additional random pointer which could point to any node
- * in the list or null.Return a deep copy of the list.
+ * A linked indexList is given such that each node contains an additional random pointer which could point to any node
+ * in the indexList or null.Return a deep copy of the indexList.
  * ***************************************************************
  * Analysis:
  * 1.不考虑random pointer的话, 只有next pointer,那么只要循环遍历一次即可

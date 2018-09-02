@@ -9,9 +9,9 @@ import java.util.ArrayList;
  * http://www.programcreek.com/2016/04/get-target-using-number-list-and-arithmetic-operations-google/
  * ****************************************************
  * Description:
- * Given a list of numbers and a target number, write a program to determine whether the target number
+ * Given a indexList of numbers and a target number, write a program to determine whether the target number
  * can be calculated by applying +-*"/"
- * operations to the number list? You can assume () is automatically added when necessary.
+ * operations to the number indexList? You can assume () is automatically added when necessary.
  * For example, given {1,2,3,4} and 21, return true. Because (1+2)*(3+4)=21
  * ****************************************************
  * Analysis:

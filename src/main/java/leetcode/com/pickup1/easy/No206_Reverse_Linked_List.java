@@ -9,7 +9,7 @@ import leetcode.com.util.ListNode;
  * https://leetcode.com/problems/reverse-linked-list/
  * ****************************************************
  * Description:
- * Reverse a singly linked list.
+ * Reverse a singly linked indexList.
  * ****************************************************
  * Time: 7 mins
  * Beat: 4%

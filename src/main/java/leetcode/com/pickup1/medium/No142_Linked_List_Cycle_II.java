@@ -9,9 +9,9 @@ import leetcode.com.util.ListNode;
  * https://leetcode.com/problems/linked-list-cycle-ii/
  * ****************************************************
  * Description:
- * Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
+ * Given a linked indexList, return the node where the cycle begins. If there is no cycle, return null.
  * <p>
- * Note: Do not modify the linked list.
+ * Note: Do not modify the linked indexList.
  * ****************************************************
  * Thoughts:
  * 1.好像是,一个走1步,一个走2步,相遇的地方就是cycle开始的地方-->理解错误

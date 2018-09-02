@@ -9,7 +9,7 @@ import leetcode.com.util.TreeNode;
  * https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/
  * ***********************************************************************
  * Description:
- * Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.
+ * Given a singly linked indexList where elements are sorted in ascending order, convert it to a height balanced BST.
  * ***********************************************************************
  * Solution:
  * 套用二叉树的判读方法，这样的话总是从最左侧的子节点，子树开始，那么list中的数值也就刚好可以放到结点中

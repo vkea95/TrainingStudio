@@ -1,7 +1,6 @@
 package leetcode.com.tag.design;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by JianZhang on 10/7/17.
@@ -56,7 +55,7 @@ public class No146_LRU_Cache {
     public int get(int key) {
         if (!map.containsKey(key))
             return -1;
-        //bug 3: forget to move the node to head
+        //bug 3: forget to move the node to lruHead
 //        LRUNode obj = map.get(key);
         LRUNode obj = isolate(map.get(key));
         moveToHead(obj);
@@ -79,23 +78,6 @@ public class No146_LRU_Cache {
         LRUNode lruNode = new LRUNode(key, value);
         map.put(key, lruNode);
         moveToHead(lruNode);
-//
-//        LRUNode lruNode;
-//        if (map.containsKey(key)) {
-//            lruNode = map.get(key);
-//            //找到节点后需要将其从链表中移除成为空的节点
-//            lruNode = isolate(lruNode);
-//
-//        } else {
-//            lruNode = new LRUNode(key, value);
-//            if (map.size() >= capacity) {
-//                //remove the leatest LRUNode
-//                LRUNode tempNode = removeFromTail();
-//                map.remove(tempNode.key);
-//            }
-//            map.put(key, lruNode);
-//        }
-//        moveToHead(lruNode);
 
     }
 
@@ -105,13 +87,6 @@ public class No146_LRU_Cache {
         head.next = lruNode;
         lruNode.prev = head;
     }
-//
-//    private LRUNode removeFromTail() {
-//        LRUNode objNode = tail.prev;
-//        objNode.prev.next = tail;
-//        tail.prev = objNode.prev;
-//        return objNode;
-//    }
 
     //bug : 通过双向链表来完成摘链和组链操作
     private LRUNode isolate(LRUNode lruNode) {

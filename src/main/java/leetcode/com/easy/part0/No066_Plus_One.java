@@ -7,7 +7,7 @@ package leetcode.com.easy.part0;
  * **********************************************
  * Description:
  * Given a non-negative number represented as an array of digits, plus one to the number.
- * The digits are stored such that the most significant digit is at the head of the list.
+ * The digits are stored such that the most significant digit is at the head of the indexList.
  * **********************************************
  * Solutions:
  * 按位进行加减法，注意进位的处理以及数组元素加1的可能性

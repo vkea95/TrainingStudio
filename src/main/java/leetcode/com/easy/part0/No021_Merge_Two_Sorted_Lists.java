@@ -8,8 +8,8 @@ import leetcode.com.util.ListNode;
  * https://leetcode.com/problems/merge-two-sorted-lists/
  * ******************************************************
  * Descriptions:
- * Jian_Merge two sorted linked lists and return it as a new list.
- * The new list should be made by splicing together the nodes of the first two lists.
+ * Jian_Merge two sorted linked lists and return it as a new indexList.
+ * The new indexList should be made by splicing together the nodes of the first two lists.
  * ******************************************************
  * Solutions:
  * ******************************************************

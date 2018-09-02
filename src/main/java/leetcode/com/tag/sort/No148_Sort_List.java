@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * Created by JianZhang on 9/1/17.
- * Sort a linked list in O(n log n) time using constant space complexity.
+ * Sort a linked indexList in O(n log n) time using constant space complexity.
  * Thought:
  * 1. 想到了用快速排序的方式
  * Solution:

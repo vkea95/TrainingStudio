@@ -140,7 +140,7 @@ public class BST<Key extends Comparable<Key>, Value> {
         int cmp = key.compareTo(x.key);
         if (cmp < 0) x.left = put(x.left, key, val);
         else if (cmp > 0) x.right = put(x.right, key, val);
-        else x.val = val;//TODO: update the value
+        else x.val = val;//TODO: updateHelper the value
         //TODO: 递归更新size
         x.size = 1 + size(x.left) + size(x.right);
         return x;

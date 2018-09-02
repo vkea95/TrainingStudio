@@ -32,7 +32,7 @@ public class GraphStructure {
         EdgeNode edgeNode = new EdgeNode(y, 0);
         edgeNode.next = graph.edgeNodes[x];
         //此时是按照链表的方式进行插入操作呢,新的节点会排在之前的节点的前面!!!!!!!!!!重要!!!!
-        graph.edgeNodes[x] = edgeNode;/*insert at head of list !!!!*/
+        graph.edgeNodes[x] = edgeNode;/*insert at head of indexList !!!!*/
 
         graph.degrees[x]++;/**/
 
@@ -69,7 +69,7 @@ public class GraphStructure {
     public class EdgeNode {
         int y;/* adjacency info 邻接点*/
         int weight;/* edge weight, if any */
-        EdgeNode next;/* next edge in list */
+        EdgeNode next;/* next edge in indexList */
 
         public EdgeNode(int y, int weight) {
             this.y = y;

@@ -9,11 +9,11 @@ import java.util.*;
  * https://leetcode.com/problems/word-ladder-ii/
  * ****************************************************
  * Description:
- * Given two words (beginWord and endWord), and a dictionary's word list, find all shortest transformation
+ * Given two words (beginWord and endWord), and a dictionary's word indexList, find all shortest transformation
  * sequence(s) from beginWord to endWord, such that:
  * <p>
  * Only one letter can be changed at a time
- * Each intermediate word must exist in the word list
+ * Each intermediate word must exist in the word indexList
  * For example,
  * <p>
  * Given:
@@ -184,10 +184,10 @@ public class No126_Word_Ladder_II {
 
         List<List<String>> result = new ArrayList<>();
 
-        //if two parts can not be connected, then return empty list
+        //if two parts can not be connected, then return empty indexList
         if (!isConnected) return result;
 
-        //we need to add start node to temp list as there is no other node can get start node
+        //we need to add start node to temp indexList as there is no other node can get start node
         List<String> temp = new ArrayList<>();
         temp.add(beginWord);
 

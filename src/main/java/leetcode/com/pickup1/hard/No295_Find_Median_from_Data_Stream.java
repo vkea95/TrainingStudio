@@ -10,7 +10,7 @@ import java.util.PriorityQueue;
  * https://leetcode.com/problems/find-median-from-data-stream/
  * ****************************************************
  * Description:
- * Median is the middle value in an ordered integer list. If the size of the list is even,
+ * Median is the middle value in an ordered integer indexList. If the size of the indexList is even,
  * there is no middle value. So the median is the mean of the two middle value.
  * <p>
  * Examples:

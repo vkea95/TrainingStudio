@@ -11,7 +11,7 @@ import java.util.Stack;
  * https://leetcode.com/problems/flatten-binary-tree-to-linked-list/
  * ****************************************************
  * Description:
- * Given a binary tree, flatten it to a linked list in-place.
+ * Given a binary tree, flatten it to a linked indexList in-place.
  * <p>
  * For example,
  * Given

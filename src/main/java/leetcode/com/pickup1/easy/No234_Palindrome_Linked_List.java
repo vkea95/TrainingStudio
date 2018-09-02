@@ -9,7 +9,7 @@ import leetcode.com.util.ListNode;
  * https://leetcode.com/problems/palindrome-linked-list/
  * ****************************************************
  * Description:
- * Given a singly linked list, determine if it is a palindrome(回文).
+ * Given a singly linked indexList, determine if it is a palindrome(回文).
  * ****************************************************
  * Thoughts:
  * 1.palindrome->回文,难道是循环链表吗?

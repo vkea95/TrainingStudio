@@ -9,7 +9,7 @@ import leetcode.com.util.ListNode;
  * https://leetcode.com/problems/reverse-linked-list-ii/
  * ****************************************************
  * Description:
- * Reverse a linked list from position m to n. Do it in-place and in one-pass.
+ * Reverse a linked indexList from position m to n. Do it in-place and in one-pass.
  * <p>
  * For example:
  * Given 1->2->3->4->5->NULL, m = 2 and n = 4,

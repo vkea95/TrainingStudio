@@ -15,7 +15,7 @@ package leetcode.com.tag.dp;
  * Bugs:
  * 1. 数组初始化的时候,需要用下标初期化,或者是前项+1,
  * 2. 字符不等的时候,要考虑的是:左,上和左上位置的最小值+1
- * [i,j]->[i-1,j-1] + update operation
+ * [i,j]->[i-1,j-1] + updateHelper operation
  * [i,j]->[i-1,j] + delete operation
  * [i,j]->[i,j-1] + insert operation
  */

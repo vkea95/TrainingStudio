@@ -8,7 +8,7 @@ import leetcode.com.util.ListNode;
  * https://leetcode.com/problems/merge-k-sorted-lists/
  * *******************************************************
  * Descriptions:
- * Jian_Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+ * Jian_Merge k sorted linked lists and return it as one sorted indexList. Analyze and describe its complexity.
  */
 public class No023_Merge_k_Sorted_Lists {
 

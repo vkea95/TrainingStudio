@@ -27,7 +27,7 @@ public class No053_Maximum_Subarray_Difference {
     }
 
     /**
-     * @param nums: A list of integers
+     * @param nums: A indexList of integers
      * @return: An integer indicate the value of maximum difference between two
      * Subarrays
      */

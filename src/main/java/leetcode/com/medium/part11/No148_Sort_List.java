@@ -9,7 +9,7 @@ import leetcode.com.util.ListNode;
  * https://leetcode.com/problems/sort-list/
  * **************************************************************
  * Description:
- * Sort a linked list in O(n log n) time using constant space complexity.
+ * Sort a linked indexList in O(n log n) time using constant space complexity.
  * **************************************************************
  * Analysis:
  * 时间复杂度为O(n log n),就必然会有树?不对!应该会有归并排序或快速排序
@@ -59,7 +59,7 @@ public class No148_Sort_List {
         right = sortList(rightHead.next);
 
         pivot.next = right;
-        //save the head of the left list
+        //save the head of the left indexList
         ListNode re = left;
 
         while (left != null && left.next != null) {

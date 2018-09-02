@@ -53,7 +53,7 @@ public class No199_Binary_Tree_Right_Side_View {
     private void helper(TreeNode root, int index, List<Integer> result) {
 
         if (root == null) return;
-        //bug1:list 的add处理，不等于它replace 所以需要额外的判断处理呢
+        //bug1:indexList 的add处理，不等于它replace 所以需要额外的判断处理呢
         if (result.size() > index) {
             result.remove(index);
         }

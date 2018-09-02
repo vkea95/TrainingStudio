@@ -13,17 +13,17 @@ import java.util.Stack;
  * https://leetcode.com/problems/flatten-nested-list-iterator/
  * ****************************************************
  * Description:
- * Given a nested list of integers, implement an iterator to flatten it.
+ * Given a nested indexList of integers, implement an iterator to flatten it.
  * <p>
- * Each element is either an integer, or a list -- whose elements may also be integers or other lists.
+ * Each element is either an integer, or a indexList -- whose elements may also be integers or other lists.
  * <p>
  * Example 1:
- * Given the list [[1,1],2,[1,1]],
+ * Given the indexList [[1,1],2,[1,1]],
  * <p>
  * By calling next repeatedly until hasNext returns false, the order of elements returned by next should be: [1,1,2,1,1].
  * <p>
  * Example 2:
- * Given the list [1,[4,[6]]],
+ * Given the indexList [1,[4,[6]]],
  * <p>
  * By calling next repeatedly until hasNext returns false, the order of elements returned by next should be: [1,4,6].
  * ****************************************************

@@ -25,7 +25,7 @@ import java.util.List;
  * This is because the new interval [4,9] overlaps with [3,5],[6,7],[8,10].
  * start:0945
  * thoughts:
- * 1. sort the origin list
+ * 1. sort the origin indexList
  * 2. O(n)循环数组,查看交集
  * bugs:
  * 1. 没有给结果排序

@@ -9,7 +9,7 @@ import java.util.Comparator;
 
 /**
  * Created by JianZhang on 9/7/17.
- * Given a list of non negative integers, arrange them such that they form the largest number.
+ * Given a indexList of non negative integers, arrange them such that they form the largest number.
  * <p>
  * For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330.
  * <p>

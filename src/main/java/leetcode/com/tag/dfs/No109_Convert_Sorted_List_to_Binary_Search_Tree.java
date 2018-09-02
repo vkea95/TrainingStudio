@@ -5,7 +5,7 @@ import leetcode.com.util.TreeNode;
 
 /**
  * Created by JianZhang on 9/27/17.
- * Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.
+ * Given a singly linked indexList where elements are sorted in ascending order, convert it to a height balanced BST.
  */
 public class No109_Convert_Sorted_List_to_Binary_Search_Tree {
     public static void main(String[] args) {

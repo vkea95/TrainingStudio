@@ -18,13 +18,13 @@ package leetcode.com.easy.part2;
  * Any live cell with two or three live neighbors lives on to the next generation.
  * Any live cell with more than three live neighbors dies, as if by over-population..
  * Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
- * Write a function to compute the next state (after one update) of the board given its current state.
+ * Write a function to compute the next state (after one updateHelper) of the board given its current state.
  * <p>
  * <p>
  * *******************************************
  * Follow up:
- * Could you solve it in-place? Remember that the board needs to be updated at the same time: You cannot update some
- * cells first and then use their updated values to update other cells.
+ * Could you solve it in-place? Remember that the board needs to be updated at the same time: You cannot updateHelper some
+ * cells first and then use their updated values to updateHelper other cells.
  * In this question, we represent the board using a 2D array. In principle, the board is infinite, which would cause
  * problems when the active area encroaches the border of the array. How would you address these problems?
  * *******************************************

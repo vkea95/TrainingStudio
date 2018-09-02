@@ -8,11 +8,11 @@ package leetcode.com.pickup1.medium;
  * ****************************************************
  * Description:
  * Given an integer array nums, find the sum of the elements between indices i and j (i ≤ j), inclusive.
- * The update(i, val) function modifies nums by updating the element at index i to val.
+ * The updateHelper(i, val) function modifies nums by updating the element at index i to val.
  * Example:
  * Given nums = [1, 3, 5]
  * sumRange(0, 2) -> 9
- * update(1, 2)
+ * updateHelper(1, 2)
  * sumRange(0, 2) -> 8
  * ****************************************************
  * Thoughts:
@@ -128,5 +128,5 @@ class SumTreeNode {
 // Your NumArray object will be instantiated and called as such:
 // NumArray numArray = new NumArray(nums);
 // numArray.sumRange(0, 1);
-// numArray.update(1, 10);
+// numArray.updateHelper(1, 10);
 // numArray.sumRange(1, 2);

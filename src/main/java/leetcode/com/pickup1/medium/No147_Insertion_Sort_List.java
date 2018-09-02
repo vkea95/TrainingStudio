@@ -8,7 +8,7 @@ import leetcode.com.util.ListNode;
  * ****************************************************
  * Description:
  *
- * Sort a linked list using insertion sort.
+ * Sort a linked indexList using insertion sort.
  * ****************************************************
  * ****************************************************
  * ****************************************************

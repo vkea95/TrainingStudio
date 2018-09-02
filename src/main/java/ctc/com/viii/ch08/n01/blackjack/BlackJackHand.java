@@ -25,7 +25,7 @@ public class BlackJackHand extends Hand<BlackJackCard> {
     }
 
     /*
-    re   a list of all possible scores this hand could have(evaluationg each ace as both 1 and 11)
+    re   a indexList of all possible scores this hand could have(evaluationg each ace as both 1 and 11)
      */
     private List<Integer> possibleScored() {
         return null;

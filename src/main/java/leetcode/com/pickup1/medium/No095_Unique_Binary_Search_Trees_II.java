@@ -53,7 +53,7 @@ public class No095_Unique_Binary_Search_Trees_II {
     private List<TreeNode> helper(int start, int end) {
         List<TreeNode> result = new ArrayList<>();
         if (start > end) {
-            //bug1: need to add null to result list, otherwise, nothing to add the recursive
+            //bug1: need to add null to result indexList, otherwise, nothing to add the recursive
             result.add(null);
             return result;
 

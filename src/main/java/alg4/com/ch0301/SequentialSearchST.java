@@ -6,7 +6,7 @@ package alg4.com.ch0301;
  *  Data files:   http://algs4.cs.princeton.edu/31elementary/tinyST.txt
  *
  *  Symbol table implementation with sequential search in an
- *  unordered linked list of key-value pairs.
+ *  unordered linked indexList of key-value pairs.
  *
  *  % more tinyST.txt
  *  S E A R C H E X A M P L E
@@ -42,7 +42,7 @@ import edu.princeton.cs.algs4.StdOut;
  *  value associated with a key to {@code null} is equivalent to deleting the key
  *  from the symbol table.
  *  <p>
- *  This implementation uses a singly-linked list and sequential search.
+ *  This implementation uses a singly-linked indexList and sequential search.
  *  It relies on the {@code equals()} method to test whether two keys
  *  are equal. It does not call either the {@code compareTo()} or
  *  {@code hashCode()} method.
@@ -59,9 +59,9 @@ import edu.princeton.cs.algs4.StdOut;
  */
 public class SequentialSearchST<Key, Value> {
     private int n;           // number of key-value pairs
-    private Node first;      // the linked list of key-value pairs
+    private Node first;      // the linked indexList of key-value pairs
 
-    // a helper linked list data type
+    // a helper linked indexList data type
     private class Node {
         private Key key;
         private Value val;
@@ -168,7 +168,7 @@ public class SequentialSearchST<Key, Value> {
         first = delete(first, key);
     }
 
-    // delete key in linked list beginning at Node x
+    // delete key in linked indexList beginning at Node x
     // warning: function call stack too large if table is large
     private Node delete(Node x, Key key) {
         if (x == null) return null;

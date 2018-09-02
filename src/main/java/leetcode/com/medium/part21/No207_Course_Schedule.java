@@ -11,7 +11,7 @@ import java.util.*;
  * There are a total of n courses you have to take, labeled from 0 to n - 1.
  * Some courses may have prerequisites, for example to take course 0 you have to first take course 1,
  * which is expressed as a pair: [0,1]
- * Given the total number of courses and a list of prerequisite pairs, is it possible for you to finish all courses?
+ * Given the total number of courses and a indexList of prerequisite pairs, is it possible for you to finish all courses?
  * For example:
  * 2, [[1,0]]
  * There are a total of 2 courses to take. To take course 1 you should have finished course 0. So it is possible.
@@ -31,12 +31,12 @@ public class No207_Course_Schedule {
     }
 
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        // init the adjacency list
+        // init the adjacency indexList
         List<Set> posts = new ArrayList<>();
         for (int i = 0; i < numCourses; i++)
             posts.add(new HashSet<>());
 
-        //fill the adjacency list
+        //fill the adjacency indexList
         for (int i = 0; i < prerequisites.length; i++)
             // 将前提课程的对应课程存入对应的HashSet,hashSet的size就是这个节点的入度
             posts.get(prerequisites[i][1]).add(prerequisites[i][0]);

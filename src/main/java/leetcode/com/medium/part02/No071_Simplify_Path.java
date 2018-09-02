@@ -21,7 +21,7 @@ import java.util.List;
  * In this case, you should ignore redundant slashes and return "/home/foo".
  * ***********************************************
  * Solution:
- * 1.将字符根据“/” 打散成 list， 那么遇到“..”就返回上级目录 即删掉之前最后的那个路径
+ * 1.将字符根据“/” 打散成 indexList， 那么遇到“..”就返回上级目录 即删掉之前最后的那个路径
  * 但是如何处理"/../"呢？ 没有看明白哦
  */
 public class No071_Simplify_Path {

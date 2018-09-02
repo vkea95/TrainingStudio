@@ -28,12 +28,12 @@ import java.util.ArrayList;
  * 而且,保证后面再出现略大的数字,也会被放入原来的序列中,这样保证了长度的不变,而且一旦有更大的数字出来,也完全可以cover,
  * 这个和我的最原始思路吻合,完成了我没有完成的解法实体化
  * for each num in nums
- * if(list.size()==0)
- * add num to list
- * else if(num > last element in list)
- * add num to list
+ * if(indexList.size()==0)
+ * add num to indexList
+ * else if(num > last element in indexList)
+ * add num to indexList
  * else
- * replace the element in the list which is the smallest but bigger than num
+ * replace the element in the indexList which is the smallest but bigger than num
  * ****************************************************
  */
 public class No300_Longest_Increasing_Subsequence {

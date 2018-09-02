@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * Created by JianZhang on 8/31/17.
- * Sort a linked list using insertion sort.
+ * Sort a linked indexList using insertion sort.
  * 1554
  * Thoughts:
  * 1. what's the insertionSort?:

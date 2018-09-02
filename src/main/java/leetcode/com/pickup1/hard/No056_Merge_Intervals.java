@@ -52,7 +52,7 @@ public class No056_Merge_Intervals {
         }
 
         List<Interval> result = new ArrayList<>();
-        //sort the elements of the  list
+        //sort the elements of the  indexList
         Collections.sort(intervals, new Comparator<Interval>() {
                     @Override
                     public int compare(Interval o1, Interval o2) {

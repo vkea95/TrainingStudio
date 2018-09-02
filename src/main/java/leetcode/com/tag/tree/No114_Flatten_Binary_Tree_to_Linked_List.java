@@ -6,7 +6,7 @@ import java.util.Stack;
 
 /**
  * Created by JianZhang on 9/25/17.
- * Given a binary tree, flatten it to a linked list in-place.
+ * Given a binary tree, flatten it to a linked indexList in-place.
  * <p>
  * For example,
  * Given

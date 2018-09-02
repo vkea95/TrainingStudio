@@ -9,7 +9,7 @@ import leetcode.com.util.ListNode;
  * https://leetcode.com/problems/merge-k-sorted-lists/
  * ****************************************************
  * Description:
- * Jian_Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+ * Jian_Merge k sorted linked lists and return it as one sorted indexList. Analyze and describe its complexity.
  * ****************************************************
  * Thoughts:
  * 1.merge 排序的算法,肯定是.

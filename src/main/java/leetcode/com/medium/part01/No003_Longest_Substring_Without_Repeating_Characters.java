@@ -60,10 +60,10 @@ public class No003_Longest_Substring_Without_Repeating_Characters {
         for (int i = 0, j = 0; i < s.length(); ++i) {
             if (map.containsKey(s.charAt(i))) {
                 //if found in hashmap that value,
-                // then update j i.e pointer to the right of the same character last found.
+                // then updateHelper j i.e pointer to the right of the same character last found.
                 j = Math.max(j, map.get(s.charAt(i)) + 1);
             }
-            //else put in map and get max pointer update with the current longest string
+            //else put in map and get max pointer updateHelper with the current longest string
             map.put(s.charAt(i), i);
             max = Math.max(max, i - j + 1);
         }

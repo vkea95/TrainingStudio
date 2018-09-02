@@ -9,7 +9,7 @@ import java.util.*;
  * https://leetcode.com/problems/reconstruct-itinerary/
  * ****************************************************
  * Description:
- * Given a list of airline tickets represented by pairs of departure and arrival airports [from, to], reconstruct the
+ * Given a indexList of airline tickets represented by pairs of departure and arrival airports [from, to], reconstruct the
  * itinerary in order. All of the tickets belong to a man who departs from JFK. Thus, the itinerary must begin with JFK.
  * <p>
  * Note:
@@ -34,7 +34,7 @@ import java.util.*;
  * ****************************************************
  * ****************************************************
  * 技术弱点:
- * 1. Collections会对一个list进行排序: Collections.sort(list)
+ * 1. Collections会对一个list进行排序: Collections.sort(indexList)
  * 2.stack 变list.用subList(0,size())
  * ****************************************************
  */
@@ -79,7 +79,7 @@ public class No332_Reconstruct_Itinerary {
 
         //排序,进而保证出来的第一个答案就是最佳答案
         for (List<String> value : tripMap.values()) {
-            //bug1:don't know the collectins.sort(list)
+            //bug1:don't know the collectins.sort(indexList)
             Collections.sort(value);
         }
         stack.push("JFK");
@@ -100,7 +100,7 @@ public class No332_Reconstruct_Itinerary {
 
         if (list != null) {
 
-            //bug7:list 可能为null
+            //bug7:indexList 可能为null
             for (int i = 0; i < list.size(); i++) {
                 //
                 String end = list.get(i);

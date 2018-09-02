@@ -22,7 +22,7 @@ import java.util.ArrayList;
  */
 public class No053_Minimum_Subarray {
     /**
-     * @param nums: a list of integers
+     * @param nums: a indexList of integers
      * @return: A integer indicate the sum of minimum subarray
      */
     public int minSubArray(ArrayList<Integer> nums) {

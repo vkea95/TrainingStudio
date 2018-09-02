@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * Created by JianZhang on 10/22/17.
  * Given a data stream input of non-negative integers a1, a2, ..., an, ...,
- * summarize the numbers seen so far as a list of disjoint intervals.
+ * summarize the numbers seen so far as a indexList of disjoint intervals.
  * <p>
  * For example, suppose the integers from the data stream are 1, 3, 7, 2, 6, ..., then the summary will be:
  * <p>
@@ -48,7 +48,7 @@ public class No352_Data_Stream_as_Disjoint_Intervals {
                 if (curInterval.start <= floorInterval.end) {
                     return;
                 } else if (curInterval.start == floorInterval.end + 1) {
-                    //update element
+                    //updateHelper element
 //                    bug2:直接就是去floor的start,它必然小
                     curInterval.start = floorInterval.start;
                     //remove it

@@ -13,7 +13,7 @@ import java.util.Queue;
  * http://www.jiuzhang.com/solutions/merge-k-sorted-lists/
  * *****************************************************************
  * Descriptions:
- * Jian_Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+ * Jian_Merge k sorted linked lists and return it as one sorted indexList. Analyze and describe its complexity.
  * *****************************************************************
  * Solutions:
  * 感觉就是想象成N个数进行排序，排的细节需要按照两个listNode的list方式来进行处理，可用Divide&Conquer来处理，这样效率高些

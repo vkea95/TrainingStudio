@@ -95,11 +95,11 @@ public class FastCollinearPoints {
     }
 
     public static void main(String[] args) {
-//        ArrayList<String> list = new ArrayList<>();
+//        ArrayList<String> indexList = new ArrayList<>();
 //        while (!StdIn.isEmpty()) {
 //            String ss = StdIn.readString();
 //            for (String str : ss.split(" ")) {
-//                list.add(str);
+//                indexList.add(str);
 //            }
 //        }
         Point[] points = new Point[8];

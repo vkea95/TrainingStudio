@@ -23,7 +23,7 @@ package leetcode.com.hard;
  * // User 1 posts a new tweet (id = 5).
  * twitter.postTweet(1, 5);
  * <p>
- * // User 1's news feed should return a list with 1 tweet id -> [5].
+ * // User 1's news feed should return a indexList with 1 tweet id -> [5].
  * twitter.getNewsFeed(1);
  * <p>
  * // User 1 follows user 2.
@@ -32,14 +32,14 @@ package leetcode.com.hard;
  * // User 2 posts a new tweet (id = 6).
  * twitter.postTweet(2, 6);
  * <p>
- * // User 1's news feed should return a list with 2 tweet ids -> [6, 5].
+ * // User 1's news feed should return a indexList with 2 tweet ids -> [6, 5].
  * // Tweet parent 6 should precede tweet parent 5 because it is posted after tweet parent 5.
  * twitter.getNewsFeed(1);
  * <p>
  * // User 1 unfollows user 2.
  * twitter.unfollow(1, 2);
  * <p>
- * // User 1's news feed should return a list with 1 tweet id -> [5],
+ * // User 1's news feed should return a indexList with 1 tweet id -> [5],
  * // since user 1 is no longer following user 2.
  * twitter.getNewsFeed(1);
  * ****************************************************

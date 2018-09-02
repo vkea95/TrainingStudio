@@ -11,7 +11,7 @@ import java.util.*;
  * Some courses may have prerequisites, for example to take course 0 you have to first take course 1,
  * which is expressed as a pair: [0,1]
  * <p>
- * Given the total number of courses and a list of prerequisite pairs, is it possible for you to finish all courses?
+ * Given the total number of courses and a indexList of prerequisite pairs, is it possible for you to finish all courses?
  * <p>
  * For example:
  * <p>
@@ -23,7 +23,7 @@ import java.util.*;
  * and to take course 0 you should also have finished course 1. So it is impossible.
  * <p>
  * Note:
- * The input prerequisites is a graph represented by a list of edges, not adjacency matrices.
+ * The input prerequisites is a graph represented by a indexList of edges, not adjacency matrices.
  * Read more about how a graph is represented.
  * You may assume that there are no dupNumber edges in the input prerequisites.
  * click to show more hints.

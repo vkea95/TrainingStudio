@@ -9,11 +9,11 @@ import java.util.*;
  * https://leetcode.com/problems/word-ladder/
  * ****************************************************
  * Description:
- * Given two words (beginWord and endWord), and a dictionary's word list, find the length of shortest transformation
+ * Given two words (beginWord and endWord), and a dictionary's word indexList, find the length of shortest transformation
  * sequence from beginWord to endWord, such that:
  * <p>
  * Only one letter can be changed at a time
- * Each intermediate word must exist in the word list
+ * Each intermediate word must exist in the word indexList
  * For example,
  * <p>
  * Given:

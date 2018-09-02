@@ -1,12 +1,57 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * Created by JianZhang on 2/27/18.
  */
 public class SolutionShort {
+
+
+    public static void main(String[] args) {
+//        functional examples
+        Map<String, Integer> nameMap = new HashMap<>();
+        System.out.println(nameMap.computeIfAbsent("john", String::length));
+
+//      The Function interface has also a default compose method that allows to
+//      combine several functions into one and execute them sequentially:
+        Function<Integer, String> intToString = Object::toString;
+        Function<String, String> quote = s -> "'" + s + "'";
+
+        Function<Integer, String> quoteIntToString = quote.compose(intToString);
+
+        System.out.println("'5'".equals(quoteIntToString.apply(5)));
+
+
+//        BiFunction
+        Map<String, Integer> salaries = new HashMap<>();
+        salaries.put("John", 40000);
+        salaries.put("Freddy", 30000);
+        salaries.put("Samuel", 50000);
+
+        salaries.replaceAll((name, oldValue) ->
+                name.equals("Freddy") ? oldValue : oldValue + 10000);
+//
+        List<String> names = Arrays.asList("Angela", "Aaron", "Bob", "Claire", "David");
+
+        List<String> namesWithA = names.stream()
+                .filter(name -> name.startsWith("A"))
+                .collect(Collectors.toList());
+        namesWithA.forEach(name -> System.out.println(name));
+//        boolean
+        String abc = "abc";
+        names.replaceAll(name -> name + "llllll");
+        names.forEach(name -> System.out.println(name));
+//        One of the most interesting use cases of a BinaryOperator is a reduction operation.
+// Suppose we want to aggregate a collection of integers in a sum of all values. With Stream API,
+// we could do this using a collector, but a more generic way to do it is, would be to use the reduce method:
+        List<Integer> values = Arrays.asList(3, 5, 8, 9, 12);
+
+        int sum = values.stream()
+                .reduce(0, (i1, i2) -> i1 + i2);
+        System.out.println(sum);
+
+    }
 
     public int shortestDistance(int[][] maze, int[] start, int[] destination) {
         if (maze == null) {
@@ -329,3 +374,44 @@ public class SolutionShort {
 //    }
 }
 
+class Solution {
+    LinkedList list = new LinkedList();
+    public List<String> findItinerary(String[][] tickets) {
+        list.add(1,"String");
+        int n = tickets.length;
+        Map<String, List<String>> graph = new HashMap<>();
+        for (String[] ticket : tickets) {
+            graph.computeIfAbsent(ticket[0], val -> new ArrayList<>());
+            graph.get(ticket[0]).add(ticket[1]);
+        }
+        graph.keySet().forEach(item -> Collections.sort(graph.get(item), Collections.reverseOrder()));
+
+        List<String> result = new ArrayList<>();
+        dfs(n, "JFK", graph, result);
+
+        return result;
+    }
+
+    private boolean dfs(int n, String depart, Map<String, List<String>> graph, List<String> result) {
+        result.add(depart);
+
+        if (result.size() > n) {
+            return true;
+        }
+        //             bug: NPE
+        List<String> neighbours = graph.getOrDefault(depart, new ArrayList<>());
+        for (int i = neighbours.size() - 1; i >= 0; i--) {
+            String neighbor = neighbours.get(i);
+            neighbours.remove(i);
+            // result.add(neighbor);
+            if (dfs(n, neighbor, graph, result)) {
+                return true;
+            }
+
+            neighbours.add(i, neighbor);
+        }
+        result.remove(result.size() - 1);
+        return false;
+    }
+
+}

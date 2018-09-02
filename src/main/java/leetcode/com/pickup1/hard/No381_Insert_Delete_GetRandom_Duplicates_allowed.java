@@ -55,7 +55,7 @@ import java.util.*;
  * 同理，如果要删除一个元素val，则首先找到以val为key的ArrayList，再从其中移除一个val。
  * <p>
  * <p>
- * 而对于随机返回一个元素，我们可以用一个List<Integer>类型的成员变量 list 来保存每个val，用mSize来保存所有元素的总个数，
+ * 而对于随机返回一个元素，我们可以用一个List<Integer>类型的成员变量 indexList 来保存每个val，用mSize来保存所有元素的总个数，
  * 生成一个介于0到mSize之间的随机数 random 。由于List可以保存重复的元素，所以可以直接通过list.get(random)来返回一个随机元素。
  * 看一下Java代码实现：
  * ****************************************************

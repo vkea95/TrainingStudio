@@ -83,7 +83,7 @@ public class No354_Russian_Doll_Envelopes {
             for (int j = i - 1; j >= 0; j--) {
                 if (list.get(j).w < curDoll.w && list.get(j).h < curDoll.h) {
                     //bug2:没有考虑娃娃大小不一致的问题,它们不一致导致大的娃娃可以分别装下它们,或是可以一起装下它们
-//                    curDoll.dollNum += list.get(j).dollNum;
+//                    curDoll.dollNum += indexList.get(j).dollNum;
                     internMax = internMax > list.get(j).dollNum ? internMax : list.get(j).dollNum;
                     //bug:forget to break; then get the wrong answer
 //                    break;

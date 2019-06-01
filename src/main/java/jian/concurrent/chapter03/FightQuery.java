@@ -1,4 +1,7 @@
 package jian.concurrent.chapter03;
 
-public class FightQuery {
+import java.util.List;
+
+public interface FightQuery {
+    List<String> get();
 }

@@ -1,4 +1,4 @@
-package jian.corejava.thread;
+package jian.concurrent.chapter03;
 
 public class CurrentThread {
     public static void main(String[] args) {

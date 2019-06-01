@@ -1,4 +1,4 @@
-package jian.lambda;
+package jian.java8.function;
 
 import java.util.function.Supplier;
 

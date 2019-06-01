@@ -97,7 +97,7 @@ public class No210_Course_Schedule_II {
 //                marked[obj] = true;
 //            }
 //        }
-//        Iterator it = reversePost.iterator();
+//        Iterator it = reversePost.returnList();
 //        marked = new boolean[numCourses];
 //        while (!reversePost.isEmpty()) {
 //            if (marked[result.])

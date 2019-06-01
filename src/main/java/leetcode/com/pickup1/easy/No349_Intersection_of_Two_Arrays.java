@@ -53,7 +53,7 @@ public class No349_Intersection_of_Two_Arrays {
         int[] rst = new int[set.size()];
         int i = 0;
         //set 支持内嵌的iterator
-//        Iterator<Integer> it =set.iterator();
+//        Iterator<Integer> it =set.returnList();
 //        while (it.hasNext())
 //            rst[i++]=it.next();
         for (int num : set) rst[i++] = num;

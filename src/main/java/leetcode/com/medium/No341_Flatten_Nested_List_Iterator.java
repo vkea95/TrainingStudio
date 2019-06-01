@@ -13,7 +13,7 @@ import java.util.Stack;
  * https://leetcode.com/problems/flatten-nested-list-iterator/
  * ****************************************************
  * Description:
- * Given a nested indexList of integers, implement an iterator to flatten it.
+ * Given a nested indexList of integers, implement an returnList to flatten it.
  * <p>
  * Each element is either an integer, or a indexList -- whose elements may also be integers or other lists.
  * <p>
@@ -73,7 +73,7 @@ class NestedIterator implements Iterator<Integer> {
                     nextInteger = nestedInteger.getInteger();
                     return true;
                 } else {
-                    //push the newest iterator, wait for the loop operation
+                    //push the newest returnList, wait for the loop operation
                     nestedStack.push(nestedInteger.getList().iterator());
                 }
             }

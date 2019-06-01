@@ -1,4 +1,5 @@
 TrainingStudio.iml
+*.log
 .idea/
 target/
 src/main/resources

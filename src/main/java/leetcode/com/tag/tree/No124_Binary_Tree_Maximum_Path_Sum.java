@@ -37,9 +37,9 @@ public class No124_Binary_Tree_Maximum_Path_Sum {
 //    对于DFS来说，其递归过程中必定会对某节点的子节点调用，那么其返回值应该适用于上面第二种情况，
 // 但是最终结果肯定是第一种情况，那么如果保存并更新最终结果呢，我们可以将其放在参数中传递。那么对于任意一个节点n来说，
 //
-//    DFS(n) = max(DFS(n->left) + n->val, DFS(n->right) + n->val, n->val);
+//    dfsLeafNodes(n) = max(dfsLeafNodes(n->left) + n->val, dfsLeafNodes(n->right) + n->val, n->val);
 //
-//    top(n) = max(DFS(n), DFS(n->left) + DFS(n->right) + n->val, n->val);
+//    top(n) = max(dfsLeafNodes(n), dfsLeafNodes(n->left) + dfsLeafNodes(n->right) + n->val, n->val);
 //
 //    res = max(res, top(n));
 //

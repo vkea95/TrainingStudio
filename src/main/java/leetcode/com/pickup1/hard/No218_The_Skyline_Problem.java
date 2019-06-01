@@ -55,7 +55,7 @@ import java.util.*;
 public class No218_The_Skyline_Problem {
     public List<int[]> getSkyline(int[][] buildings) {
         List<int[]> result = new ArrayList<>();
-        Queue<Integer> pQueue = new PriorityQueue<>(Collections.reverseOrder());
+        Queue<Integer> pQueue = new PriorityQueue<>((o1, o2) -> o2 - o1);
 
         List<int[]> lineList = new ArrayList<>();
         for (int[] build : buildings) {
@@ -63,17 +63,26 @@ public class No218_The_Skyline_Problem {
             lineList.add(new int[]{build[1], build[2]});
         }
 
-        Collections.sort(lineList, new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                // 根据横坐标对列表排序，相同横坐标的点纵坐标小的排在前面
-                if (o1[0] != o2[0]) {
-                    return o1[0] - o2[0];
-                } else {
-                    return o1[1] - o2[1];
-                }
+        lineList.sort((o1, o2) -> {
+
+            // 根据横坐标对列表排序，相同横坐标的点纵坐标小的排在前面
+            if (o1[0] != o2[0]) {
+                return o1[0] - o2[0];
+            } else {
+                return o1[1] - o2[1];
             }
         });
+//        Collections.sort(lineList, new Comparator<int[]>() {
+//            @Override
+//            public int compare(int[] o1, int[] o2) {
+//                // 根据横坐标对列表排序，相同横坐标的点纵坐标小的排在前面
+//                if (o1[0] != o2[0]) {
+//                    return o1[0] - o2[0];
+//                } else {
+//                    return o1[1] - o2[1];
+//                }
+//            }
+//        });
 
         pQueue.offer(0);
         int prev = 0;

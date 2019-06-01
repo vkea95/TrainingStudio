@@ -1,11 +1,8 @@
 package jian.alg.com;
 
-import com.google.common.primitives.Ints;
-
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.*;
-import java.util.concurrent.Semaphore;
 
 public class ConsistentHashing<T> implements Hashing<T> {
 
@@ -33,7 +30,7 @@ public class ConsistentHashing<T> implements Hashing<T> {
     }
 
 
-    TreeMap<Long, T> nodeMap;
+    TreeMap<Long, T> treeMap;
     Map<T, List<String>> nodeListMap;
 
     int virtualNumder;
@@ -41,7 +38,7 @@ public class ConsistentHashing<T> implements Hashing<T> {
     ConsistentHashing(List<T> serverNodeList, int virtualNumber) {
         this.virtualNumder = virtualNumber;
         nodeListMap = new HashMap<>();
-        nodeMap = new TreeMap<>();
+        treeMap = new TreeMap<>();
         for (T t : serverNodeList) {
             nodeListMap.putIfAbsent(t, new ArrayList<>());
         }
@@ -60,7 +57,7 @@ public class ConsistentHashing<T> implements Hashing<T> {
         for (int i = 0; i < virtualNumder; i++) {
             String tmp = t.toString() + "-node-" + i;
             Long hash = getHasing(tmp);
-            nodeMap.put(hash, t);
+            treeMap.put(hash, t);
             nodeListMap.get(t).add(tmp);
         }
     }
@@ -69,7 +66,7 @@ public class ConsistentHashing<T> implements Hashing<T> {
     public void removeServerNode(T t) {
         for (String tmp : nodeListMap.get(t)) {
             Long hash = getHasing(tmp);
-            nodeMap.remove(hash);
+            treeMap.remove(hash);
         }
         nodeListMap.clear();
     }
@@ -77,8 +74,8 @@ public class ConsistentHashing<T> implements Hashing<T> {
     @Override
     public T getServerNode(String val) {
         Long hashing = getHasing(val);
-        SortedMap<Long, T> tail = nodeMap.tailMap(hashing);
-        return nodeMap.get(tail.size() == 0 ? nodeMap.firstKey() : tail.firstKey());
+        SortedMap<Long, T> tail = treeMap.tailMap(hashing);
+        return treeMap.get(tail.size() == 0 ? treeMap.firstKey() : tail.firstKey());
     }
 
 

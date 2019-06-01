@@ -14,7 +14,7 @@ import java.util.Stack;
  * https://leetcode.com/problems/flatten-nested-list-iterator/
  * *****************************************************************************
  * Description:
- * Given a nested indexList of integers, implement an iterator to flatten it.
+ * Given a nested indexList of integers, implement an returnList to flatten it.
  * <p>
  * Each element is either an integer, or a indexList -- whose elements may also be integers or other lists.
  * <p>

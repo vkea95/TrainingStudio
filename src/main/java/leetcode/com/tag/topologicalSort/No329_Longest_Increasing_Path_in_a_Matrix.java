@@ -23,7 +23,7 @@ package leetcode.com.tag.topologicalSort;
  * The longest increasing path is [3, 4, 5, 6]. Moving diagonally is not allowed.
  * Solutions:
  * 1. limited conditions: A. increasing B.
- * 2. graph: DFS or BFS
+ * 2. graph: dfsLeafNodes or BFS
  * 3. ds: 邻接表?
  * Time: 1532
  */

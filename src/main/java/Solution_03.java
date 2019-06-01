@@ -1,7 +1,13 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution33 {
+public class Solution_03 {
+
+
+    public static void main(String[] args) {
+        ValidationResult rst = Solution_03.ValidateSequence("-Gdo-Gdo-Ado-Ado-Udo-Gro-Gro");
+        System.out.println(rst);
+    }
 
     private static Set<Character> legalModifierSet = new HashSet<>();
     private static Set<Character> legalBaseSet = new HashSet<>();
@@ -53,7 +59,7 @@ public class Solution33 {
         legalLinkSet.add('s');
     }
 
-    public ValidationResult ValidateSequence(String sequence) {
+    public static ValidationResult ValidateSequence(String sequence) {
         if (sequence == null || sequence.length() == 0) {
             return new ValidationResult(false);
         }
@@ -74,7 +80,7 @@ public class Solution33 {
 
     }
 
-    private boolean isValidPosition(int i, char c) {
+    private static boolean isValidPosition(int i, char c) {
         int j = (i + 1) % 4;
 
         boolean isOK = true;
@@ -87,7 +93,7 @@ public class Solution33 {
         } else if (j == 3 && !legalSugarSet.contains(c)) {
             // check sugar
             isOK = false;
-        } else if (!legalLinkSet.contains(c)) {
+        } else if (j == 0 && !legalLinkSet.contains(c)) {
             // check linkages
             isOK = false;
         }
@@ -111,6 +117,15 @@ class ValidationResult {
         this.isValid = isValid;
         this.position = position;
         this.failReason = failReason;
+    }
+
+    @Override
+    public String toString() {
+        return "ValidationResult{" +
+                "isValid = " + isValid +
+                ", position = " + position +
+                ", failReason = '" + failReason + '\'' +
+                '}';
     }
 }
 

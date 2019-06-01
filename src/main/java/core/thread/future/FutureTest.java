@@ -1,24 +1,27 @@
-package core.thread;
+package core.thread.future;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
+import java.util.stream.IntStream;
 
 public class FutureTest {
     public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.sort((a, b) -> a.compareTo(b));
+
+
         Scanner in = new Scanner(System.in);
         System.out.println("Enter base directory (e.g. ..): ");
-        String diectory = in.nextLine();
+        String directory = in.nextLine();
         System.out.println("Enter keyword (e.g. volatile) :");
         String keyword = in.nextLine();
 
-        MatchCounter matchCounter = new MatchCounter(new File(diectory), keyword);
+        MatchCounter matchCounter = new MatchCounter(new File(directory), keyword);
         FutureTask<Integer> task = new FutureTask<>(matchCounter);
         Thread t = new Thread(task);
         t.start();

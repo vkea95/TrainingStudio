@@ -1,21 +1,26 @@
 package core.collections;
 
 import java.util.Iterator;
-import java.util.Spliterator;
-import java.util.function.Consumer;
+import java.util.List;
 
-public class ImplementIterator implements Iterator<E>{
+public class Animalterator<String> implements Iterator<String> {
 
+    private List<String> animal;
+    int index = 0;
 
-    public ImplementIterator()
-
-    @Override
-    public boolean hasNext() {
-        return false;
+    public Animalterator(Animal animal) {
+        this.animal = animal.getAnimalList();
     }
 
     @Override
-    public E next() {
-        return null;
+    public boolean hasNext() {
+
+        return index < animal.size();
+    }
+
+    @Override
+    public String next() {
+        return animal.get(index++);
+
     }
 }

@@ -1,45 +1,46 @@
-package ctc.com.viii.ch15.p03.solution1;
+package ctc.com.viii.ch15.p03.solution2;
+
 
 public class Philosopher extends Thread {
     private final int maxPause = 100;
     private int bites = 10;
     private int id;
-    private Chopstick left;
-    private Chopstick right;
+    private Chopstick lower;
+    private Chopstick higher;
 
     public Philosopher(int id, Chopstick left, Chopstick right) {
         this.id = id;
-        this.left = left;
-        this.right = right;
+        // 分配chopstick 给lower和higher
+        if (left.getNumber() < right.getNumber()) {
+            this.lower = left;
+            this.higher = right;
+
+        } else {
+            this.higher = left;
+            this.lower = right;
+        }
+
     }
 
     public void eat() {
         System.out.println("Philosopher " + id + ": start eating");
-        if (pickUp()) {
-            chew();
-            putDown();
-            System.out.println("Philosopher " + id + ": done eating");
-        } else {
-            System.out.println("Philosopher " + id + ": gave up on eating");
-        }
+        pickUp();
+        chew();
+        putDown();
+        System.out.println("Philosopher " + id + ": done eating");
     }
 
-    public boolean pickUp() {
+    public void pickUp() {
         pause();
-        if (!left.pickUp()) {
-            return false;
-        }
+        lower.pickUp();
         pause();
-        if (!right.pickUp()) {
-            return false;
-        }
+        higher.pickUp();
         pause();
-        return true;
     }
 
     public void putDown() {
-        right.putDown();
-        left.putDown();
+        higher.putDown();
+        lower.putDown();
     }
 
     public void chew() {

@@ -1,0 +1,7 @@
+0. 设计模式很赞
+1.定义一个functionInterface，用于取回返回值，要明确generic IN和OUT，get方法的输入类型是IN，返回类型是OUT
+2. 先定义一个Future 接口，里面有get和done方法，分别获得结果和判断是否完毕
+3. 顶一个future的实现类，内置一个方法，用来更新result和done变量，同时通知其他线程，注意这个方法需要判断done是否完成，完成的话，就不要进行了。
+4. 定义一个FutureService为future类型提供服务，两类submit方法，一个提交无返回类型的Future，另一个就是有返回类型的，同时内置一个放静态方法，返回一个实现类的实例
+5.FutureServiceImpl实现FutureService，submit实现类似，其中functionInterface的实现，是通过test函数中传进去的，返回也是在该段代码实现的。
+6.FutureServiceImpl和Test代码有混淆的可能

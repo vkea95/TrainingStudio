@@ -1,4 +1,4 @@
-package Q15_03_Dining_Philosophers.QuestionB;
+package ctc.com.viii.ch15.p03.solution2;
 
 public class Question {
 	public static int size = 3;

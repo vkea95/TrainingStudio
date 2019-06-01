@@ -1,4 +1,6 @@
 package jian.concurrent.chapter19;
 
-public class Callback {
+public interface Callback<T> {
+
+    void call(T t);
 }

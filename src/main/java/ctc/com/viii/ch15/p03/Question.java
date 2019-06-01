@@ -1,4 +1,4 @@
-package Q15_03_Dining_Philosophers.QuestionB;
+package ctc.com.viii.ch15.p03;
 
 public class Question {
 	public static int size = 3;
@@ -12,21 +12,21 @@ public class Question {
 	}
 	
 	public static void main(String[] args) {		
-		Chopstick[] chopsticks = new Chopstick[size + 1];
-		for (int i = 0; i < size + 1; i++) {
-			chopsticks[i] = new Chopstick(i);
-		}
-		
-		Philosopher[] philosophers = new Philosopher[size];
-		for (int i = 0; i < size; i++) {
-			Chopstick left = chopsticks[leftOf(i)];
-			Chopstick right = chopsticks[rightOf(i)];
-			philosophers[i] = new Philosopher(i, left, right);
-		}
-		
-		for (int i = 0; i < size; i++) {
-			philosophers[i].start();
-		}		
+//		Chopstick[] chopsticks = new Chopstick[size + 1];
+//		for (int i = 0; i < size + 1; i++) {
+//			chopsticks[i] = new Chopstick(i);
+//		}
+//
+//		Philosopher[] philosophers = new Philosopher[size];
+//		for (int i = 0; i < size; i++) {
+//			Chopstick left = chopsticks[leftOf(i)];
+//			Chopstick right = chopsticks[rightOf(i)];
+//			philosophers[i] = new Philosopher(i, left, right);
+//		}
+//
+//		for (int i = 0; i < size; i++) {
+//			philosophers[i].start();
+//		}
 	}
 
 }

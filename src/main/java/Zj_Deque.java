@@ -1,10 +1,13 @@
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+import java.lang.reflect.Array;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by JianZhang on 1/13/18.
  */
 public class Zj_Deque<Item> implements Iterable<Item> {
+
     private int size = 0;
     private DequeNode firstNode = null;
     private DequeNode lastNode = null;
@@ -131,12 +134,50 @@ public class Zj_Deque<Item> implements Iterable<Item> {
         }
     }
 
+    class Result {
+
+        /*
+         * Complete the 'ada' function below.
+         *
+         * The function is expected to return an INTEGER.
+         * The function accepts INTEGER year as parameter.
+         */
+
+
+    }
+
+
     public static void main(String[] args) {
+        int year = 2018;
+        int result = 1;
+        String octFirstWeekDay = String.format("%04d-10-22", year);
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        try {
+            calendar.setTime(format.parse(octFirstWeekDay));
+            result = calendar.get(calendar.DAY_OF_WEEK);
+        } catch (ParseException e) {
+            System.out.println("invalid input year:" + e);
+            result = -1;
+        }
+
+        result = result <= 2 ? (9 - result) : (16 - result);
+
+
         Zj_Deque<Integer> rq = new Zj_Deque<Integer>();
         rq.addFirst(12);
         rq.addLast(13);
         rq.removeFirst();
         rq.removeLast();
+        int[][] envelopes = new int[2][2];
+        PriorityQueue<Integer> q = new PriorityQueue<>((a, b) -> {
+            if (envelopes[a][0] == envelopes[b][0]) {
+                return envelopes[b][1] - envelopes[a][1];
+            } else {
+                return envelopes[a][0] - envelopes[b][0];
+            }
+        });
     }
-}
 
+}

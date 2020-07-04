@@ -6,3 +6,4 @@ src/main/resources
 .DS_Store
 *.zip
 life10Hours/
+*.class

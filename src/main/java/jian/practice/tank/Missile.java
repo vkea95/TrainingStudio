@@ -6,6 +6,7 @@ public class Missile {
 
     private int xPos;
     private int yPos;
+    private boolean good;
     private boolean isLive = true;
     public static final int WIDTH = 10;
     public static final int HEIGHT = 10;
@@ -15,14 +16,15 @@ public class Missile {
     TankWar tankWar = null;
 // 变通的方式，将tank和game的引用传进来，然后可以操作里面的对象，完成remove
 
-    public Missile(int xPos, int yPos, Tank.Direction direction, TankWar tankWar) {
-        this(xPos, yPos, direction);
+    public Missile(int xPos, int yPos, boolean good, TankWar tankWar, Tank.Direction direction) {
+        this(xPos, yPos, good, direction);
         this.tankWar = tankWar;
     }
 
-    public Missile(int x, int y, Tank.Direction direction) {
+    public Missile(int x, int y, boolean good, Tank.Direction direction) {
         this.xPos = x;
         this.yPos = y;
+        this.good = good;
         this.direction = direction;
     }
 
@@ -95,12 +97,11 @@ public class Missile {
     }
 
     public boolean hitTank(Tank tank) {
-        if (tank.isLive() && this.getRectangle().intersects(tank.getRectangle())) {
+        if (this.isLive && tank.isLive() && tank.isGood() != this.isGood() && this.getRectangle().intersects(tank.getRectangle())) {
             tank.setLive(false);
             this.setLive(false);
             tankWar.getExplodeList().add(new Explode(xPos, yPos, tankWar));
-//            将tank从list对象中抹除
-            tankWar.getEnemyList().remove(tank);
+
             return true;
         } else {
             return false;
@@ -110,9 +111,19 @@ public class Missile {
     public boolean hitTankList(java.util.List<Tank> tanks) {
         for (int i = 0; i < tanks.size(); i++) {
             if (hitTank(tanks.get(i))) {
+                //            将tank从list对象中抹除
+                tankWar.getEnemyList().remove(i);
                 return true;
             }
         }
         return false;
+    }
+
+    public boolean isGood() {
+        return good;
+    }
+
+    public void setGood(boolean good) {
+        this.good = good;
     }
 }

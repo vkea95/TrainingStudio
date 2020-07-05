@@ -98,6 +98,8 @@ public class TankWar extends Frame {
         }
         this.tank.draw(g);
         for (int i = 0; i < missileList.size(); i++) {
+            missileList.get(i).hitTank(tank);
+
             missileList.get(i).hitTankList(enemyList);
             missileList.get(i).draw(g);
         }
@@ -209,3 +211,5 @@ public class TankWar extends Frame {
 // 如果在Missile中管理missile List的化，会导致多线程异常，因为我用的是forEach Exception in thread "AWT-EventQueue-0" java.util.ConcurrentModificationException
 //Step 07 missile hits the tank: add method to missile class
 // step 08: explode should be a list of objects
+// step 09 敌方tank一发射就会把自己干掉，所以需要给missle增加属性，保证同样属性的导弹和tank不产生爆炸
+//且 对方发射的导弹会太多了！

@@ -101,10 +101,13 @@ public class Tank {
 //    tank need to fire action then return a missile
 
     private void fire() {
+        if (!isLive) {
+            return;
+        }
 //        保证子弹从坦克中间发射出来
         int x = this.xPos + Tank.WIDTH / 2 - Missile.WIDTH / 2;
         int y = this.yPos + Tank.HEIGHT / 2 - Missile.HEIGHT / 2;
-        tankWar.getMissileList().add(new Missile(x, y, barrelDirection, tankWar));
+        tankWar.getMissileList().add(new Missile(x, y, good, tankWar, barrelDirection));
     }
 
 
@@ -149,6 +152,12 @@ public class Tank {
         if (yPos < 30) yPos = 30;
         if (xPos + Tank.WIDTH > TankWar.GAME_WIDTH) xPos = TankWar.GAME_WIDTH - WIDTH;
         if (yPos + Tank.HEIGHT > TankWar.GAME_HEIGHT) yPos = TankWar.GAME_HEIGHT - HEIGHT;
+
+        if (!good) {
+//            if (random.nextInt(100) > 99) {
+////                fire();
+//            }
+        }
     }
 
     public int getxPos() {
@@ -234,5 +243,9 @@ public class Tank {
 
     public void setLive(boolean live) {
         isLive = live;
+    }
+
+    public boolean isGood() {
+        return good;
     }
 }

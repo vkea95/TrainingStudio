@@ -14,16 +14,21 @@ public class TankWar extends Frame {
     public static final int GAME_WIDTH = 800;
     public static final int GAME_HEIGHT = 600;
 
+
     java.util.List<Missile> missileList = new ArrayList<>();
 
     Image offScreenImage = null;
     private Tank tank = null;
-    private Tank enemyTank = null;
+    private java.util.List<Tank> enemyList = null;
+    private java.util.List<Explode> explodeList = new ArrayList<>();
 
     public TankWar() throws HeadlessException {
 //        此处可以将this这个引用传给tank
-        tank = new Tank(50, 50, true, this);
-        enemyTank = new Tank(50, 50, false, this);
+        tank = new Tank(50, 50, true, Tank.Direction.STOP, this);
+        enemyList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            enemyList.add(new Tank(200 + i * 50, 50, false, Tank.Direction.U, this));
+        }
 
     }
 
@@ -84,19 +89,22 @@ public class TankWar extends Frame {
     public void paint(Graphics g) {
 //        System.out.println("the Size of missileList: " + missileList.size());
         g.drawString("Missiles count:" + missileList.size(), 10, 50);
+        g.drawString("Explode count:" + explodeList.size(), 10, 70);
+        g.drawString("tanks count:" + enemyList.size(), 10, 90);
+
         Color c = g.getColor();
-        enemyTank.draw(g);
+        for (int i = 0; i < enemyList.size(); i++) {
+            enemyList.get(i).draw(g);
+        }
         this.tank.draw(g);
         for (int i = 0; i < missileList.size(); i++) {
+            missileList.get(i).hitTankList(enemyList);
             missileList.get(i).draw(g);
         }
-//        for (Missile missile : missileList) {
-//            missile.draw(g);
-////            if (missile.isLive()) {
-////            } else {
-////                missileList.remove(missile);
-////            }
-//        }
+
+        for (int i = 0; i < explodeList.size(); i++) {
+            explodeList.get(i).draw(g);
+        }
         g.setColor(c);
         super.paint(g);
     }
@@ -157,6 +165,22 @@ public class TankWar extends Frame {
     public void setMissileList(List<Missile> missileList) {
         this.missileList = missileList;
     }
+
+    public List<Explode> getExplodeList() {
+        return explodeList;
+    }
+
+    public void setExplodeList(List<Explode> explodeList) {
+        this.explodeList = explodeList;
+    }
+
+    public List<Tank> getEnemyList() {
+        return enemyList;
+    }
+
+    public void setEnemyList(List<Tank> enemyList) {
+        this.enemyList = enemyList;
+    }
 }
 //Step 04. move the tank
 // tank 移动：1. 位置变为变量，2. 需要一个线程来负责重画坦克 3.使用一个内部类，比较容易访问外部包装类，所以就用他了。
@@ -183,3 +207,5 @@ public class TankWar extends Frame {
 // 将Missile 加入到一个list容器中，不停地重画，问题来了，list中的对象 在飘出屏幕后，应进行销毁操作，否则就永远占用内存了
 // 还有一种可能就是打中对方tank
 // 如果在Missile中管理missile List的化，会导致多线程异常，因为我用的是forEach Exception in thread "AWT-EventQueue-0" java.util.ConcurrentModificationException
+//Step 07 missile hits the tank: add method to missile class
+// step 08: explode should be a list of objects

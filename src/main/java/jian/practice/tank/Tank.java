@@ -2,6 +2,7 @@ package jian.practice.tank;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.util.Random;
 
 public class Tank {
 
@@ -13,6 +14,7 @@ public class Tank {
     private boolean bU = false;
     private boolean bR = false;
     private boolean bD = false;
+    private boolean isLive = true;
 
     enum Direction {L, LU, U, RU, R, RD, D, LD, STOP}
 
@@ -23,9 +25,11 @@ public class Tank {
     private int xPos = 50;
     private int yPos = 50;
     private boolean good;
+    private static Random random = new Random();
 
-    public Tank(int xPos, int yPos, boolean good, TankWar tankWar) {
+    public Tank(int xPos, int yPos, boolean good, Direction direction, TankWar tankWar) {
         this(xPos, yPos, good);
+        this.direction = direction;
         this.tankWar = tankWar;
     }
 
@@ -36,6 +40,8 @@ public class Tank {
     }
 
     public void draw(Graphics g) {
+//        直接判断是否活着就好了
+        if (!isLive) return;
         Color c = g.getColor();
         if (good) {
 
@@ -76,6 +82,10 @@ public class Tank {
                 break;
         }
 
+        if (!good) {
+            Direction[] dirs = Direction.values();
+            direction = dirs[random.nextInt(dirs.length)];
+        }
         movie();
 
 
@@ -132,7 +142,6 @@ public class Tank {
         if (yPos < 30) yPos = 30;
         if (xPos + Tank.WIDTH > TankWar.GAME_WIDTH) xPos = TankWar.GAME_WIDTH - WIDTH;
         if (yPos + Tank.HEIGHT > TankWar.GAME_HEIGHT) yPos = TankWar.GAME_HEIGHT - HEIGHT;
-
     }
 
     public int getxPos() {
@@ -208,4 +217,15 @@ public class Tank {
         else if (!bL && !bU && !bR && !bD) direction = Direction.STOP;
     }
 
+    public Rectangle getRectangle() {
+        return new Rectangle(xPos, yPos, WIDTH, HEIGHT);
+    }
+
+    public boolean isLive() {
+        return isLive;
+    }
+
+    public void setLive(boolean live) {
+        isLive = live;
+    }
 }

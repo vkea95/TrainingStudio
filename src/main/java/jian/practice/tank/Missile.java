@@ -27,6 +27,12 @@ public class Missile {
     }
 
     public void draw(Graphics g) {
+        if (!isLive) {
+//            此处进行处理就比较好了，在draw的时候，判断是否
+            tankWar.getMissileList().remove(this);
+            return;
+        }
+
         Color c = g.getColor();
 //        set the color for the missile object
         g.setColor(Color.BLACK);
@@ -67,7 +73,7 @@ public class Missile {
                 break;
         }
         if (isOutOfBoundary()) {
-            tankWar.getMissileList().remove(this);
+            isLive = false;
         }
     }
 
@@ -82,5 +88,31 @@ public class Missile {
 
     public void setLive(boolean live) {
         isLive = live;
+    }
+
+    public Rectangle getRectangle() {
+        return new Rectangle(xPos, yPos, WIDTH, HEIGHT);
+    }
+
+    public boolean hitTank(Tank tank) {
+        if (tank.isLive() && this.getRectangle().intersects(tank.getRectangle())) {
+            tank.setLive(false);
+            this.setLive(false);
+            tankWar.getExplodeList().add(new Explode(xPos, yPos, tankWar));
+//            将tank从list对象中抹除
+            tankWar.getEnemyList().remove(tank);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean hitTankList(java.util.List<Tank> tanks) {
+        for (int i = 0; i < tanks.size(); i++) {
+            if (hitTank(tanks.get(i))) {
+                return true;
+            }
+        }
+        return false;
     }
 }

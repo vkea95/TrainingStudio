@@ -26,6 +26,7 @@ public class Tank {
     private int yPos = 50;
     private boolean good;
     private static Random random = new Random();
+    private int step = random.nextInt(12) + 3;
 
     public Tank(int xPos, int yPos, boolean good, Direction direction, TankWar tankWar) {
         this(xPos, yPos, good);
@@ -83,8 +84,14 @@ public class Tank {
         }
 
         if (!good) {
-            Direction[] dirs = Direction.values();
-            direction = dirs[random.nextInt(dirs.length)];
+            if (step == 0) {
+
+                Direction[] dirs = Direction.values();
+                direction = dirs[random.nextInt(dirs.length)];
+                step = random.nextInt(12) + 3;
+
+            }
+            step--;
         }
         movie();
 

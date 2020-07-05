@@ -22,20 +22,27 @@ public class Tank {
 
     private int xPos = 50;
     private int yPos = 50;
+    private boolean good;
 
-    public Tank(int xPos, int yPos, TankWar tankWar) {
-        this(xPos, yPos);
+    public Tank(int xPos, int yPos, boolean good, TankWar tankWar) {
+        this(xPos, yPos, good);
         this.tankWar = tankWar;
     }
 
-    public Tank(int xPos, int yPos) {
+    public Tank(int xPos, int yPos, boolean good) {
         this.xPos = xPos;
         this.yPos = yPos;
+        this.good = good;
     }
 
     public void draw(Graphics g) {
         Color c = g.getColor();
-        g.setColor(Color.RED);
+        if (good) {
+
+            g.setColor(Color.RED);
+        } else {
+            g.setColor(Color.BLUE);
+        }
         g.fillOval(xPos, yPos, WIDTH, HEIGHT);
         g.setColor(c);
 

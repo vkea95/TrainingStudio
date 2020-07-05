@@ -18,10 +18,13 @@ public class TankWar extends Frame {
 
     Image offScreenImage = null;
     private Tank tank = null;
+    private Tank enemyTank = null;
 
     public TankWar() throws HeadlessException {
 //        此处可以将this这个引用传给tank
-        tank = new Tank(50, 50, this);
+        tank = new Tank(50, 50, true, this);
+        enemyTank = new Tank(50, 50, false, this);
+
     }
 
     public void launchFrame() {
@@ -82,6 +85,7 @@ public class TankWar extends Frame {
 //        System.out.println("the Size of missileList: " + missileList.size());
         g.drawString("Missiles count:" + missileList.size(), 10, 50);
         Color c = g.getColor();
+        enemyTank.draw(g);
         this.tank.draw(g);
         for (int i = 0; i < missileList.size(); i++) {
             missileList.get(i).draw(g);

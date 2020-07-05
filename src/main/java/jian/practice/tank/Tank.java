@@ -60,7 +60,7 @@ public class Tank {
                 g.drawLine(xPos + Tank.WIDTH / 2, yPos + Tank.HEIGHT / 2, xPos + Tank.HEIGHT, yPos + Tank.HEIGHT);
                 break;
             case D:
-                g.drawLine(xPos + Tank.WIDTH / 2, yPos + Tank.HEIGHT / 2, xPos+ Tank.WIDTH / 2, yPos + Tank.HEIGHT);
+                g.drawLine(xPos + Tank.WIDTH / 2, yPos + Tank.HEIGHT / 2, xPos + Tank.WIDTH / 2, yPos + Tank.HEIGHT);
                 break;
             case LD:
                 g.drawLine(xPos + Tank.WIDTH / 2, yPos + Tank.HEIGHT / 2, xPos, yPos + Tank.HEIGHT);
@@ -76,11 +76,11 @@ public class Tank {
 
 //    tank need to fire action then return a missile
 
-    private Missile fire() {
+    private void fire() {
 //        保证子弹从坦克中间发射出来
         int x = this.xPos + Tank.WIDTH / 2 - Missile.WIDTH / 2;
         int y = this.yPos + Tank.HEIGHT / 2 - Missile.HEIGHT / 2;
-        return new Missile(x, y, barrelDirection);
+        tankWar.getMissileList().add(new Missile(x, y, barrelDirection, tankWar));
     }
 
 
@@ -120,6 +120,12 @@ public class Tank {
         if (direction != Direction.STOP) {
             barrelDirection = direction;
         }
+//        控制tank不出边界
+        if (xPos < 0) xPos = 0;
+        if (yPos < 30) yPos = 30;
+        if (xPos + Tank.WIDTH > TankWar.GAME_WIDTH) xPos = TankWar.GAME_WIDTH - WIDTH;
+        if (yPos + Tank.HEIGHT > TankWar.GAME_HEIGHT) yPos = TankWar.GAME_HEIGHT - HEIGHT;
+
     }
 
     public int getxPos() {
@@ -142,9 +148,9 @@ public class Tank {
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
         switch (key) {
-            case KeyEvent.VK_CONTROL:
-                tankWar.missile = fire();
-                break;
+//            case KeyEvent.VK_CONTROL:
+//                fire();
+//                break;
             case KeyEvent.VK_LEFT:
                 bL = true;
                 break;
@@ -164,6 +170,9 @@ public class Tank {
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
         switch (key) {
+            case KeyEvent.VK_CONTROL:
+                fire();
+                break;
             case KeyEvent.VK_LEFT:
                 bL = false;
                 break;

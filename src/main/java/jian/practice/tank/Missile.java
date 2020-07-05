@@ -6,12 +6,19 @@ public class Missile {
 
     private int xPos;
     private int yPos;
-
+    private boolean isLive = true;
     public static final int WIDTH = 10;
     public static final int HEIGHT = 10;
     public static final int X_SPEED = 10;
     public static final int Y_SPEED = 10;
     Tank.Direction direction;
+    TankWar tankWar = null;
+// 变通的方式，将tank和game的引用传进来，然后可以操作里面的对象，完成remove
+
+    public Missile(int xPos, int yPos, Tank.Direction direction, TankWar tankWar) {
+        this(xPos, yPos, direction);
+        this.tankWar = tankWar;
+    }
 
     public Missile(int x, int y, Tank.Direction direction) {
         this.xPos = x;
@@ -59,7 +66,21 @@ public class Missile {
                 yPos += Y_SPEED;
                 break;
         }
-
+        if (isOutOfBoundary()) {
+            tankWar.getMissileList().remove(this);
+        }
     }
 
+    boolean isOutOfBoundary() {
+
+        return xPos < 0 || yPos < 0 || xPos > TankWar.GAME_WIDTH || yPos > TankWar.GAME_HEIGHT;
+    }
+
+    public boolean isLive() {
+        return isLive;
+    }
+
+    public void setLive(boolean live) {
+        isLive = live;
+    }
 }

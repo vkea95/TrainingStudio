@@ -5,14 +5,16 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class TankWar extends Frame {
 
-    private static final int GAME_WIDTH = 800;
-    private static final int GAME_HEIGHT = 600;
+    public static final int GAME_WIDTH = 800;
+    public static final int GAME_HEIGHT = 600;
 
-    Missile missile = null;
+    java.util.List<Missile> missileList = new ArrayList<>();
 
     Image offScreenImage = null;
     private Tank tank = null;
@@ -77,11 +79,20 @@ public class TankWar extends Frame {
 
     @Override
     public void paint(Graphics g) {
+//        System.out.println("the Size of missileList: " + missileList.size());
+        g.drawString("Missiles count:" + missileList.size(), 10, 50);
         Color c = g.getColor();
         this.tank.draw(g);
-        if (this.missile != null) {
-            this.missile.draw(g);
+        for (int i = 0; i < missileList.size(); i++) {
+            missileList.get(i).draw(g);
         }
+//        for (Missile missile : missileList) {
+//            missile.draw(g);
+////            if (missile.isLive()) {
+////            } else {
+////                missileList.remove(missile);
+////            }
+//        }
         g.setColor(c);
         super.paint(g);
     }
@@ -134,6 +145,14 @@ public class TankWar extends Frame {
             tank.keyReleased(e);
         }
     }
+
+    public List<Missile> getMissileList() {
+        return missileList;
+    }
+
+    public void setMissileList(List<Missile> missileList) {
+        this.missileList = missileList;
+    }
 }
 //Step 04. move the tank
 // tank 移动：1. 位置变为变量，2. 需要一个线程来负责重画坦克 3.使用一个内部类，比较容易访问外部包装类，所以就用他了。
@@ -156,3 +175,7 @@ public class TankWar extends Frame {
 // tank的那个fire方法，明确告知这个missile属于哪一个类了
 //  坦克停下来，子弹也就停下来了，所以需要定义另外一个方向，
 // 如何画炮筒呢
+// Step 06
+// 将Missile 加入到一个list容器中，不停地重画，问题来了，list中的对象 在飘出屏幕后，应进行销毁操作，否则就永远占用内存了
+// 还有一种可能就是打中对方tank
+// 如果在Missile中管理missile List的化，会导致多线程异常，因为我用的是forEach Exception in thread "AWT-EventQueue-0" java.util.ConcurrentModificationException

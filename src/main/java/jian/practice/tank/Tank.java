@@ -297,4 +297,20 @@ public class Tank {
     public void setDirection(Direction direction) {
         this.direction = direction;
     }
+
+    public boolean collideWithTank(Tank tank) {
+        return this.isLive && tank.isLive && this.getRectangle().intersects(tank.getRectangle());
+    }
+
+    public boolean collideWithTanks(java.util.List<Tank> tanks) {
+        for (int i = 0; i < tanks.size(); i++) {
+            Tank t = tanks.get(i);
+            if (t != this &&  collideWithTank(t)) {
+                t.stay();
+                this.stay();
+                return true;
+            }
+        }
+        return false;
+    }
 }

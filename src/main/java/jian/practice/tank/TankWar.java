@@ -97,6 +97,7 @@ public class TankWar extends Frame {
         for (int i = 0; i < enemyList.size(); i++) {
 
             enemyList.get(i).hitWallList(wallList);
+            enemyList.get(i).collideWithTanks(enemyList);
             enemyList.get(i).draw(g);
         }
         this.tank.draw(g);

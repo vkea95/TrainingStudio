@@ -24,6 +24,9 @@ public class Tank {
 
     private int xPos = 50;
     private int yPos = 50;
+
+    private int xOldPos = 50;
+    private int yOldPos = 50;
     private boolean good;
     private static Random random = new Random();
     private int step = random.nextInt(12) + 3;
@@ -93,8 +96,27 @@ public class Tank {
             }
             step--;
         }
-        movie();
-
+//        Not good we can use old variable to save the position
+//        int wallIndex = this.hitWallList(tankWar.getWallList());
+//        if (wallIndex >= 0) {
+//            Wall wall = tankWar.getWallList().get(wallIndex);
+//            if (xPos >= wall.xPos && xPos <= wall.xPos + wall.WIDTH) {
+//                xPos = wall.xPos + wall.WIDTH;
+//            } else if (xPos + WIDTH >= wall.xPos && xPos + WIDTH <= wall.xPos + wall.WIDTH) {
+//                xPos = wall.xPos - WIDTH;
+//            } else if (yPos >= wall.yPos && yPos <= wall.yPos + wall.HEIGHT) {
+//                yPos = wall.yPos + wall.HEIGHT;
+//            } else if (yPos + HEIGHT >= wall.yPos && yPos + HEIGHT <= wall.yPos + wall.HEIGHT) {
+//                yPos = wall.yPos - HEIGHT;
+//            }
+//        } else {
+//            move();
+//        }
+        if (hitWallList(tankWar.getWallList())) {
+            stay();
+        } else {
+            move();
+        }
 
     }
 
@@ -110,8 +132,14 @@ public class Tank {
         tankWar.getMissileList().add(new Missile(x, y, good, tankWar, barrelDirection));
     }
 
+    private void stay() {
+        xPos = xOldPos;
+        yPos = yOldPos;
+    }
 
-    public void movie() {
+    public void move() {
+        xOldPos = xPos;
+        yOldPos = yPos;
         switch (direction) {
             case L:
                 xPos -= X_SPEED;
@@ -154,9 +182,9 @@ public class Tank {
         if (yPos + Tank.HEIGHT > TankWar.GAME_HEIGHT) yPos = TankWar.GAME_HEIGHT - HEIGHT;
 
         if (!good) {
-//            if (random.nextInt(100) > 99) {
-////                fire();
-//            }
+            if (random.nextInt(100) > 99) {
+                fire();
+            }
         }
     }
 
@@ -233,6 +261,19 @@ public class Tank {
         else if (!bL && !bU && !bR && !bD) direction = Direction.STOP;
     }
 
+    public boolean hitWall(Wall wall) {
+        return this.isLive() && wall.getRectangle().intersects(getRectangle());
+    }
+
+    public boolean hitWallList(java.util.List<Wall> walls) {
+        for (int i = 0; i < walls.size(); i++) {
+            if (hitWall(walls.get(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public Rectangle getRectangle() {
         return new Rectangle(xPos, yPos, WIDTH, HEIGHT);
     }
@@ -247,5 +288,13 @@ public class Tank {
 
     public boolean isGood() {
         return good;
+    }
+
+    public Direction getDirection() {
+        return direction;
+    }
+
+    public void setDirection(Direction direction) {
+        this.direction = direction;
     }
 }

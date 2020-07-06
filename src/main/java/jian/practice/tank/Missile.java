@@ -40,7 +40,9 @@ public class Missile {
         g.setColor(Color.BLACK);
         g.fillOval(xPos, yPos, WIDTH, HEIGHT);
         g.setColor(c);
-        move();
+        if (!hitWallList(tankWar.getWallList())) {
+            move();
+        }
     }
 
     private void move() {
@@ -119,11 +121,47 @@ public class Missile {
         return false;
     }
 
+    public boolean hitWall(Wall wall) {
+
+        if (this.isLive() && wall.getRectangle().intersects(getRectangle())) {
+            this.setLive(false);
+            tankWar.getExplodeList().add(new Explode(this.getxPos(), this.getyPos(), tankWar));
+            return true;
+        }
+        return false;
+    }
+
+    public boolean hitWallList(java.util.List<Wall> walls) {
+        for (int i = 0; i < walls.size(); i++) {
+            if (hitWall(walls.get(i))) {
+                tankWar.getMissileList().remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean isGood() {
         return good;
     }
 
     public void setGood(boolean good) {
         this.good = good;
+    }
+
+    public int getxPos() {
+        return xPos;
+    }
+
+    public void setxPos(int xPos) {
+        this.xPos = xPos;
+    }
+
+    public int getyPos() {
+        return yPos;
+    }
+
+    public void setyPos(int yPos) {
+        this.yPos = yPos;
     }
 }

@@ -19,16 +19,17 @@ public class TankWar extends Frame {
 
     Image offScreenImage = null;
     private Tank tank = null;
-    private java.util.List<Tank> enemyList = null;
+    private java.util.List<Tank> enemyList = new ArrayList<>();
     private java.util.List<Explode> explodeList = new ArrayList<>();
+    private java.util.List<Wall> wallList = new ArrayList<>();
 
     public TankWar() throws HeadlessException {
 //        此处可以将this这个引用传给tank
         tank = new Tank(50, 50, true, Tank.Direction.STOP, this);
-        enemyList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             enemyList.add(new Tank(200 + i * 50, 50, false, Tank.Direction.U, this));
         }
+        wallList.add(new Wall(200, 300, this));
 
     }
 
@@ -94,19 +95,24 @@ public class TankWar extends Frame {
 
         Color c = g.getColor();
         for (int i = 0; i < enemyList.size(); i++) {
+
+            enemyList.get(i).hitWallList(wallList);
             enemyList.get(i).draw(g);
         }
         this.tank.draw(g);
         for (int i = 0; i < missileList.size(); i++) {
             missileList.get(i).hitTank(tank);
-
             missileList.get(i).hitTankList(enemyList);
+//            missileList.get(i).hitWallList(wallList);
             missileList.get(i).draw(g);
         }
-
+        for (Wall wall : wallList) {
+            wall.draw(g);
+        }
         for (int i = 0; i < explodeList.size(); i++) {
             explodeList.get(i).draw(g);
         }
+
         g.setColor(c);
         super.paint(g);
     }
@@ -182,6 +188,14 @@ public class TankWar extends Frame {
 
     public void setEnemyList(List<Tank> enemyList) {
         this.enemyList = enemyList;
+    }
+
+    public List<Wall> getWallList() {
+        return wallList;
+    }
+
+    public void setWallList(List<Wall> wallList) {
+        this.wallList = wallList;
     }
 }
 //Step 04. move the tank

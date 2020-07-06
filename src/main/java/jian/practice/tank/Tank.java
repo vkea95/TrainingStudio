@@ -122,14 +122,14 @@ public class Tank {
 
 //    tank need to fire action then return a missile
 
-    private void fire() {
+    private void fire(Direction direction) {
         if (!isLive) {
             return;
         }
 //        保证子弹从坦克中间发射出来
         int x = this.xPos + Tank.WIDTH / 2 - Missile.WIDTH / 2;
         int y = this.yPos + Tank.HEIGHT / 2 - Missile.HEIGHT / 2;
-        tankWar.getMissileList().add(new Missile(x, y, good, tankWar, barrelDirection));
+        tankWar.getMissileList().add(new Missile(x, y, good, tankWar, direction));
     }
 
     private void stay() {
@@ -183,7 +183,7 @@ public class Tank {
 
         if (!good) {
             if (random.nextInt(100) > 99) {
-                fire();
+                fire(barrelDirection);
             }
         }
     }
@@ -223,6 +223,9 @@ public class Tank {
             case KeyEvent.VK_UP:
                 bU = true;
                 break;
+            case KeyEvent.VK_A:
+                superFire();
+                break;
         }
         locateDirection();
     }
@@ -231,7 +234,7 @@ public class Tank {
         int key = e.getKeyCode();
         switch (key) {
             case KeyEvent.VK_CONTROL:
-                fire();
+                fire(barrelDirection);
                 break;
             case KeyEvent.VK_LEFT:
                 bL = false;
@@ -305,12 +308,22 @@ public class Tank {
     public boolean collideWithTanks(java.util.List<Tank> tanks) {
         for (int i = 0; i < tanks.size(); i++) {
             Tank t = tanks.get(i);
-            if (t != this &&  collideWithTank(t)) {
+            if (t != this && collideWithTank(t)) {
                 t.stay();
                 this.stay();
                 return true;
             }
         }
         return false;
+    }
+
+    private void superFire() {
+        Direction[] directions = Direction.values();
+        for (Direction dir : directions) {
+            if (dir == Direction.STOP) {
+                continue;
+            }
+            fire(dir);
+        }
     }
 }
